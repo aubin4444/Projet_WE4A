@@ -4,7 +4,8 @@
     <title>
         Création de compte
     </title>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body>
