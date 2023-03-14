@@ -1,26 +1,62 @@
 body{
 	font-family: Arial, sans-serif;
 	background-image: url("paysage.jpg");
+	background-color: rgba(0, 0, 0, 0.3);
 	background-size: 20%;
 	margin: 0;
 	width: 100%;
 }
 
 header{
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(0, 0, 0, 0.3);
 	width: 100%;
-	height: 160px;
+	height: 200px;
 	margin: 0;
+}
+
+#menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5%;
+}
+
+.button {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  color: white;
+  float: left;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  	background-color: grey;
+}
+
+
+.button:active {
+  background-color: grey;
+  transform: translateY(4px);
 }
 
 h1{
 	font-size: 45px;		
 	text-align: center;
 	background-size: 50px;
+	color: white;
 }
 
 footer {
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(0, 0, 0, 0.3);
 	opacity: 1;
 	width: 100%;
 	height: 160px;
