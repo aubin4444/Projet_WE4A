@@ -8,10 +8,10 @@ body{
 }
 
 header{
-	background-color: rgba(0, 0, 0, 0.3);
-	width: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 98%;
 	height: 200px;
-	margin: 0;
+	margin: 20px;
 }
 
 #menu {
@@ -23,23 +23,24 @@ header{
 
 .button {
   display: inline-block;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.7);
   font-size: 25px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 10px 200px;
   border-radius: 5px;
-  border: none;
+  border-width: 1px;
+  border-color: black;
   cursor: pointer;
-  margin: 0;
-  color: white;
-  float: left;
+  margin: 2px;
+  color: black;
   transition: background-color 0.3s ease;
 }
 
 .button:hover {
   	background-color: grey;
+	color: white;
 }
 
 
@@ -53,6 +54,38 @@ h1{
 	text-align: center;
 	background-size: 50px;
 	color: white;
+}
+
+#pour_toi table{
+	margin: 0 auto;
+	width: 95%;
+}
+
+#pour_toi td{
+	width: 75%;
+	height: auto;
+	border-radius: 15px;
+}
+
+#pour_toi .poste{
+	background-color: rgba(255, 255, 255, 0.9);
+	width: 90%;
+	height: 800px; /*normalement la hauteur sera en auto c'était juste pour avoir une idée de mise en page*/
+	border-radius: 15px;
+	margin: 15px;
+}
+
+#pour_toi .profile_recommandations{
+	background-color: rgba(255, 255, 255, 0.9);
+	width: 90%;
+	height: 395px; /*normalement la hauteur sera en auto c'était juste pour avoir une idée de mise en page*/
+	border-radius: 15px;
+	margin: 15px;
+}
+
+#pour_toi .texte{
+	font-size: 12px;
+	text-align: center;	
 }
 
 footer {
