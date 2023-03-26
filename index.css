@@ -86,7 +86,22 @@ header{
 #poste_footer {
 	width: 100%;
 	height: 20%;
+	margin-left: 3%;
+	margin-top: 15px;
 }
+
+#poste_description {
+	font-family: k2d;
+	height: 55%;
+}
+
+#poste_reactions {
+	width:20%;
+	height:30%;
+	display: flex;
+	justify-content: space-between;
+}
+
 
 .contenu_annexe {
 	width: 90%;
