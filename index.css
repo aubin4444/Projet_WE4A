@@ -1,4 +1,6 @@
-@font-face {
+*{
+	margin: 0px;
+	padding: 0px;
 	font-family: 'k2d';
 	src: url('./font/k2d-bold.ttf');
 }
@@ -8,9 +10,80 @@ body{
 	margin: 0;
 }
 
+.body_inscription{
+	background-image: url("images/paysage.jpg");
+}
+
+.formulaire_inscription{
+	background-color: rgba(255, 255, 255, 0.6);
+	width: 40%;
+	height: 100%;
+	margin: auto;
+}
+
 header{	
 	height: 215px;
 }
+
+.inscription{
+	height: 100px;
+	background-color: #2f2f2f;
+}
+
+.inscription h1{
+	text-align: center;
+	color: #fff;
+	padding-top: 20px;
+}
+
+.label{
+	padding-top: 15px;
+	padding-left: 15px;
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.input{
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+
+.input [type="text"]{
+	font-size: 30px;
+}
+
+.input [type="password"]{
+	font-size: 30px;
+}
+
+.input [type="email"]{
+	font-size: 30px;
+}
+
+.input [type="submit"]{
+	display: block;
+	margin: auto;
+	border-radius: 15px;
+	width: 250px;
+	height: 50px;
+	font-size: 30px;
+	color: #fff;
+	background-color: #0023ff;	
+	text-align: center;
+}
+
+.input [type="submit"]:hover{
+	border-radius: 15px;
+	width: 250px;
+	height: 50px;
+	font-size: 30px;
+	color: #fff;
+	background-color: #010e5f;
+	cursor: pointer;	
+}
+
+
 
 #container {
 	width: 90%;

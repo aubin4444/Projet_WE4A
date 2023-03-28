@@ -8,37 +8,80 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
-<body>
+<body class="body_inscription">
+  <header class="inscription">
+    <h1>Inscription</h1>
+  </header>
+<section class="formulaire_inscription">
 <form action="processinscription.php" method="POST">
-  <label for="nom">Nom :</label>
-  <input type="text" id="nom" name="nom" required><br>
+  <div class="label">
+    <label for="nom">Nom :</label>
+  </div>
+  <div class="input">
+    <input type="text" id="nom" name="nom" required><br>
+  </div>
 
-  <label for="prenom">Prénom :</label>
-  <input type="text" id="prenom" name="prenom" required><br>
+  <div class="label">
+    <label for="prenom">Prénom :</label>
+  </div>
+  <div class="input">
+    <input type="text" id="prenom" name="prenom" required><br>
+  </div>
 
-  <label for="email">Adresse e-mail :</label>
-  <input type="email" id="email" name="email" required><br>
+  <div class="label">
+    <label for="email">Adresse e-mail :</label>
+  </div>
+  <div class="input">
+    <input type="email" id="email" name="email" required><br>
+  </div>
 
-  <label for="motdepasse">Mot de passe :</label>
-  <input type="password" id="motdepasse" name="motdepasse" required><br>
+  <div class="label">
+    <label for="motdepasse">Mot de passe :</label>
+  </div>
+  <div class="input">
+    <input type="password" id="motdepasse" name="motdepasse" required><br>
+  </div>
 
-  <label for="confmotdepasse">Confirmer le mot de passe :</label>
-  <input type="password" id="confmotdepasse" name="confmotdepasse" required><br>
+  <div class="label">
+    <label for="confmotdepasse">Confirmer le mot de passe :</label>
+  </div>
+  <div class="input">
+    <input type="password" id="confmotdepasse" name="confmotdepasse" required><br>
+  </div>
 
-  <label for="adresse">Adresse :</label>
-  <input type="text" id="adresse" name="adresse"><br>
+  <div class="label">
+    <label for="adresse">Adresse :</label>
+  </div>
+  <div class="input">
+    <input type="text" id="adresse" name="adresse"><br>
+  </div>
 
-  <label for="ville">Ville :</label>
-  <input type="text" id="ville" name="ville"><br>
+  <div class="label">
+    <label for="ville">Ville :</label>
+  </div>
+  <div class="input">
+    <input type="text" id="ville" name="ville"><br>
+  </div>
 
-  <label for="codepostal">Code postal :</label>
-  <input type="text" id="codepostal" name="codepostal"><br>
+  <div class="label">
+    <label for="codepostal">Code postal :</label>
+  </div>
+  <div class="input">
+    <input type="text" id="codepostal" name="codepostal"><br>
+  </div>
 
-  <label for="pays">Pays :</label>
-  <input type="text" id="pays" name="pays"><br>
+  <div class="label">
+    <label for="pays">Pays :</label>
+  </div>
+  <div class="input">
+    <input type="text" id="pays" name="pays"><br>
+  </div><br>
 
-  <input type="submit" value="S'inscrire">
+  <div class="input">
+    <input type="submit" value="S'inscrire">
+  </div>
 </form>
+</section>
 </body>
 
 </html>
