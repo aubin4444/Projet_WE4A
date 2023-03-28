@@ -5,7 +5,7 @@
         Création de compte
     </title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="blog.css">
 </head>
 
 <body class="body_inscription">
