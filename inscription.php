@@ -17,9 +17,6 @@
     </header>
   </div>
 
-
-
-
   <!-- section composée du formulaire d'inscription -->
   <!------------------------------------------------------------------------------------------->
   <section class="formulaire_inscription">

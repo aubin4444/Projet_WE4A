@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 /* ------------------------------- CSS commun index / profil ---------------------------------- */
 
 @font-face{
-=======
-/*Importation de la police d'écxriture*/
-@font-face{								
->>>>>>> cd1820dab703ac434a1c9196efce804027542769
 	font-family: 'k2d';
 	src: url('./font/k2d-bold.ttf');
 }
