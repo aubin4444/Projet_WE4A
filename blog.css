@@ -299,25 +299,30 @@ h1{
 
 /* ------------------------------ CSS pour la page d'inscription ------------------------------ */
 
-.body_inscription{
+.body_inscription_connexion{
 	margin: 0;
 	padding: 0;
 	background-image: url("images/paysage.jpg");
 }
 
-.formulaire_inscription{
+.formulaire_inscription_connexion{
 	background-color: rgba(255, 255, 255, 0.6);
 	width: 40%;
-	height: 100%;
 	margin: auto;
+	padding-bottom: 20px;
 }
 
-.entete_inscription header{
+.entete_inscription_connexion header{
 	height: 100px;
 	background-color: #2f2f2f;
 }
 
-.entete_inscription h1{
+.entete_inscription_connexion header{
+	height: 100px;
+	background-color: #2f2f2f;
+}
+
+.entete_inscription_connexion h1{
 	text-align: center;
 	color: #fff;
 	padding-top: 20px;
@@ -378,11 +383,23 @@ h1{
 
 
 
+/* ------------------------------- CSS pour la page de connexion ------------------------------ */
 
+#no_compte{
+	padding-top: 25px;
+	padding-bottom: 20px;
+	text-align: center
+}
 
+#no_compte p a{
+	font-size: 14px;
+}
 
+#no_compte a{
+	color: blue;
+}
 
-
+/* -------------------------------------------------------------------------------------------- */
 
 
 
