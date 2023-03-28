@@ -1,8 +1,11 @@
+@font-face{
+	font-family: 'k2d';
+	src: url('./font/k2d-bold.ttf');
+}
+
 *{
 	margin: 0px;
 	padding: 0px;
-	font-family: 'k2d';
-	src: url('./font/k2d-bold.ttf');
 }
 
 body{
