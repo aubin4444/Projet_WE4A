@@ -1,15 +1,11 @@
-@font-face{
+/*Importation de la police d'écxriture*/
+@font-face{								
 	font-family: 'k2d';
 	src: url('./font/k2d-bold.ttf');
 }
 
-*{
-	margin: 0px;
-	padding: 0px;
-}
-
 body{
-	font-family: Arial, sans-serif;
+	font-family: k2d;
 	margin: 0;
 }
 
