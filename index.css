@@ -1,12 +1,17 @@
+<<<<<<< HEAD
 /* ------------------------------- CSS commun index / profil ---------------------------------- */
 
 @font-face{
+=======
+/*Importation de la police d'écxriture*/
+@font-face{								
+>>>>>>> cd1820dab703ac434a1c9196efce804027542769
 	font-family: 'k2d';
 	src: url('./font/k2d-bold.ttf');
 }
 
 body{
-	font-family: Arial, sans-serif;
+	font-family: k2d;
 	margin: 0;
 }
 
@@ -171,6 +176,13 @@ h1{
 	background-color: blue;
 }
 
+#profil_text {
+	font-family: k2d;
+	font-size: 200%;
+	text-align: center;
+
+}
+
 #recommandations{
 	width: 100%;
 	height: 15%;
@@ -193,7 +205,14 @@ h1{
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 20px;
-	background-image: url(./images/Croatie.jpg);
+}
+
+.photo_destination img {
+	max-height: 100%;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	border-radius: 15px;
 }
 
 /* -------------------------------------------------------------------------------------------- */
