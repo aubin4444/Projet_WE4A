@@ -1,4 +1,4 @@
-/* ------------------------------- CSS commun index / profil ---------------------------------- */
+/* ------------------------------- CSS commun blog / profil ---------------------------------- */
 
 @font-face{
 	font-family: 'k2d';
@@ -295,9 +295,7 @@ h1{
 
 
 
-
-
-/* ------------------------------ CSS pour la page d'inscription ------------------------------ */
+/* ----------------------------- CSS commun connexion / inscription --------------------------- */
 
 .body_inscription_connexion{
 	margin: 0;
@@ -317,16 +315,20 @@ h1{
 	background-color: #2f2f2f;
 }
 
-.entete_inscription_connexion header{
-	height: 100px;
-	background-color: #2f2f2f;
-}
-
 .entete_inscription_connexion h1{
 	text-align: center;
 	color: #fff;
 	padding-top: 20px;
 }
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* ------------------------------ CSS pour la page d'inscription ------------------------------ */
 
 .label{
 	padding-top: 15px;
