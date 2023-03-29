@@ -1,6 +1,6 @@
 <?php
 // Fonction de connaction à la BDD
-function ConnectDatabase(){
+function connect_db(){
     // Création des variables de connection
     $servername = "localhost";
     $username = "root";
@@ -12,7 +12,7 @@ function ConnectDatabase(){
 
     // Test de connection 
     if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Erreur de connection : " . $conn->connect_error);
     }
 }
 
@@ -58,6 +58,54 @@ function CheckLogin(){
 					'ErrorMessage' => $error,
 					'userID' => $userID,
                     '1' => $_POST["password"]];
+
+    return $resultArray;
+}
+
+function CheckNewAccountForm(){
+    global $conn;
+
+    $creationAttempted = false;
+    $creationSuccessful = false;
+    $error = NULL;
+
+    //Données reçues via formulaire?
+    if(isset($_POST["name"]) && isset($_POST["firstname"]) && isset($_POST["email"]) && isset($_POST["pseudo"]) && isset($_POST["password"]) && isset($_POST["confpassword"])){
+
+        $creationAttempted = true;
+
+        //Form is only valid if password == confirm, and username is at least 4 char long
+        if ( strlen($_POST["name"]) < 4 ){
+            $error = "Un nom utilisateur doit avoir une longueur d'au moins 4 lettres";
+        }
+        elseif ( $_POST["password"] != $_POST["confpassword"] ){
+            $error = "Le mot de passe et sa confirmation sont différents";
+        }
+        else {
+            $username = SecurizeString_ForSQL($_POST["name"]);
+            $password = $_POST["password"];
+            $firstname = $_POST["firstname"];
+            $pseudo = $_POST["pseudo"];
+            $email = $_POST["email"];
+
+            $query = "INSERT INTO `utilisateur` (prenom, nom, pseudo, email, mot_de_passe) VALUES('$firstname','$username','$pseudo','$email', '$password')";
+            $result = $conn->query($query);
+
+            if( mysqli_affected_rows($conn) == 0 )
+            {
+                $error = "Erreur lors de l'insertion SQL. Essayez un nom/password sans caractères spéciaux";
+            }
+            else{
+                $creationSuccessful = true;
+            }
+		    
+        }
+
+	}
+	
+	$resultArray = ['Attempted' => $creationAttempted, 
+					'Successful' => $creationSuccessful, 
+					'ErrorMessage' => $error];
 
     return $resultArray;
 }

@@ -46,7 +46,7 @@
 
 		<div id="no_compte">
 			<p>Si vous n'avez pas de compte</p>
-			<a href="inscription.php">S'inscrire ici</a>
+			<a href="nouveau_compte.php">S'inscrire ici</a>
 		</div>
 	</section>
 	<br>

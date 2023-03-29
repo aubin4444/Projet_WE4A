@@ -20,19 +20,19 @@
     <!-- section composée du formulaire d'inscription -->
     <!------------------------------------------------------------------------------------------->
     <section class="formulaire_inscription_connexion">
-        <form action="processinscription.php" method="POST">
+        <form action="#" method="POST">
             <div class="label">
                 <label for="nom">Nom :</label>
             </div>
             <div class="input">
-                <input type="text" id="nom" name="nom" required><br>
+                <input type="text" id="name" name="name" required><br>
             </div>
 
             <div class="label">
                 <label for="prenom">Prénom :</label>
             </div>
             <div class="input">
-                <input type="text" id="prenom" name="prenom" required><br>
+                <input type="text" id="firstname" name="firstname" required><br>
             </div>
 
             <div class="label">
@@ -43,46 +43,25 @@
             </div>
 
             <div class="label">
+                <label for="email">Pseudo :</label>
+            </div>
+            <div class="input">
+                <input type="text" id="pseudo" name="pseudo" required><br>
+            </div>
+
+            <div class="label">
                 <label for="motdepasse">Mot de passe :</label>
             </div>
             <div class="input">
-                <input type="password" id="motdepasse" name="motdepasse" required><br>
+                <input type="password" id="password" name="password" required><br>
             </div>
 
             <div class="label">
                 <label for="confmotdepasse">Confirmer le mot de passe :</label>
             </div>
             <div class="input">
-                <input type="password" id="confmotdepasse" name="confmotdepasse" required><br>
+                <input type="password" id="confpassword" name="confpassword" required><br>
             </div>
-
-            <div class="label">
-                <label for="adresse">Adresse :</label>
-            </div>
-            <div class="input">
-                <input type="text" id="adresse" name="adresse"><br>
-            </div>
-
-            <div class="label">
-                <label for="ville">Ville :</label>
-            </div>
-            <div class="input">
-                <input type="text" id="ville" name="ville"><br>
-            </div>
-
-            <div class="label">
-                <label for="codepostal">Code postal :</label>
-            </div>
-            <div class="input">
-                <input type="text" id="codepostal" name="codepostal"><br>
-            </div>
-
-            <div class="label">
-                <label for="pays">Pays :</label>
-            </div>
-            <div class="input">
-                <input type="text" id="pays" name="pays"><br>
-            </div><br>
 
             <div class="input">
                 <input type="submit" value="S'inscrire">

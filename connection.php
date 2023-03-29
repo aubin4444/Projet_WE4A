@@ -1,7 +1,7 @@
 <?php
 include("./connect_database.php");
 
-ConnectDatabase();
+connect_db();
 $loginStatus = CheckLogin();
 if ( $loginStatus["Successful"] ) {
 	$rootpath = "localhost/Projet_WE4A";

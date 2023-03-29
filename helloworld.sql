@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 28 Mars 2023 à 20:05
+-- Généré le :  Mer 29 Mars 2023 à 20:18
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -99,7 +99,8 @@ INSERT INTO `utilisateur` (`id`, `prenom`, `nom`, `pseudo`, `email`, `mot_de_pas
 (7, 'Kevin', 'Nguyen', 'kevin_n', 'kevin.nguyen@mail.com', 'pass_kevin'),
 (8, 'Jules', 'Lefevre', 'jules_l', 'jules.lefevre@mail.com', 'pass_jules'),
 (9, 'Emma', 'Moreau', 'emma_m', 'emma.moreau@mail.com', 'pass_emma'),
-(10, 'Hugo', 'Girard', 'hugo_g', 'hugo.girard@mail.com', 'pass_hugo');
+(10, 'Hugo', 'Girard', 'hugo_g', 'hugo.girard@mail.com', 'pass_hugo'),
+(16, 'Leo', 'Travel', 'leotravel', 'leo.travel@mail.com', '00000000');
 
 --
 -- Index pour les tables exportées
@@ -140,6 +141,15 @@ ALTER TABLE `post`
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`id`);
 
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Contraintes pour les tables exportées
 --
