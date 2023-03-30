@@ -1,0 +1,406 @@
+/* ------------------------------- CSS commun blog / profil ---------------------------------- */
+
+@font-face{
+	font-family: 'k2d';
+	src: url('./font/k2d-bold.ttf');
+}
+
+body{
+	font-family: k2d;
+	margin: 0;
+}
+
+header{	
+	height: 215px;
+}
+
+h1{
+	font-size: 45px;		
+	text-align: center;
+	background-size: 50px;
+	color: black;
+}
+
+#menu {
+	background-color: #f5f5f5;
+	overflow: hidden;
+	border-radius: 15px;
+	width: 80%;
+	margin: 0 auto;
+}
+ 
+#menu ul {
+	margin: 0;
+	padding: 0%;
+	list-style: none;
+	display: flex;
+	justify-content:space-around;
+	border-radius: 10px;
+	width: 100%;	
+}
+  
+#menu ul li {
+	float: left;
+}
+  
+#menu ul li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+	border-radius: 10px;
+}
+  
+#menu ul li a:hover {
+	background-color: darkslategray;
+	color: white;
+	font-style: bold;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* ---------------------------- CSS pour la page d'acceuil (index) ---------------------------- */
+
+#container {
+	width: 90%;
+	height: 800px;
+	display: flex;
+	flex-direction: row;
+	margin: auto;;
+}
+#entete_contenu {
+	width: 70%;
+	height: 100%;
+}
+
+#profil_recommandation {
+	width: 30%;
+	height: 100%;
+}
+
+#poste {
+	width: 90%;
+	height: 80%;
+	margin: auto;
+	border: 2px solid #ddd;
+	border-radius: 15px;
+	background-color: white;
+}
+
+#poste_header {
+	width: 100%;
+	height: 15%;
+	display: flex;
+}
+
+#profil {
+	padding-left: 2%;
+	padding-top: 2%;
+	display: flex;
+}
+
+#photo_profil {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-image: url(./images/paysage.jpg);
+}
+
+#nom_profil {
+	margin-top: 5%;
+	margin-left: 10px;
+	font-family: k2d;
+	font-size: 130%;
+}
+
+#date_poste {
+	float: right;
+	font-size: 70%;
+	font-family: k2d;
+	opacity: 70%;
+}
+
+#poste_image {
+	width: 100%;
+	height: 65%;
+	background-image: url(./images/paysage.jpg);
+}
+
+#poste_footer {
+	width: 100%;
+	height: 20%;
+	margin-left: 3%;
+	margin-top: 15px;
+}
+
+#poste_description {
+	font-family: k2d;
+	height: 55%;
+}
+
+#poste_reactions {
+	width:20%;
+	height:30%;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.contenu_annexe {
+	width: 90%;
+	height: 50%;
+	justify-content: space-around;
+	border: 2px solid #ddd;
+	border-radius: 15px;
+	background-color: white;
+}
+
+.photo_profil {
+	width: 30%;
+	height: 30%;
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 50%;
+	background-color: blue;
+}
+
+#profil_text {
+	font-family: k2d;
+	font-size: 200%;
+	text-align: center;
+
+}
+
+#recommandations{
+	width: 100%;
+	height: 15%;
+	margin-top: 5%;
+	text-align: center;
+	font-family: k2d;
+	font-size: 200%;
+}
+
+.destination{
+	width: 100%;
+	height: 40%;
+	text-align: center;
+	font-family: k2d;
+	font-size: 150%;
+}
+.photo_destination {
+	width: 60%;
+	height: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 20px;
+}
+
+.photo_destination img {
+	width: 100%;
+	height: 100%;
+	border-radius: 20px;
+	}
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* -------------------------------- CSS pour la page du profil -------------------------------- */
+
+#entete_contenu_profil {
+	width: 100%;
+	height: 100%;
+}
+
+#mon_profil{
+	position: absolute;
+	top: 20px;
+	left: 50px;
+	text-align: center;
+}
+
+#mon_profil img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+#mes_postes{
+	position: absolute;
+	top: 75px;
+	left: 25%;
+	text-align: center;
+	font-weight: bold;
+}
+
+#followers{
+	position: absolute;
+	top: 75px;
+	left: 50%;
+	text-align: center;
+	font-weight: bold;
+}
+
+#following{
+	position: absolute;
+	top: 75px;
+	left: 75%;
+	text-align: center;
+	font-weight: bold;
+}
+
+#plus{
+	position: absolute;
+	top: 2.5%;
+	left: 92%;
+}
+
+#plus img{
+	width: 25px;
+	height: 25px;
+}
+
+#setting{
+	position: absolute;
+	top: 2.25%;
+	left: 95%;
+}
+
+#setting img{
+	width: 25px;
+	height: 25px;
+}
+
+.menu_mon_profil{
+	position: absolute;
+	top: 160px;
+	left: 10%;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* ----------------------------- CSS commun connexion / inscription --------------------------- */
+
+.body_inscription_connexion{
+	margin: 0;
+	padding: 0;
+	background-image: url("images/paysage.jpg");
+}
+
+.formulaire_inscription_connexion{
+	background-color: rgba(255, 255, 255, 0.6);
+	width: 40%;
+	margin: auto;
+	padding-bottom: 20px;
+}
+
+.entete_inscription_connexion header{
+	height: 100px;
+	background-color: #2f2f2f;
+}
+
+.entete_inscription_connexion h1{
+	text-align: center;
+	color: #fff;
+	padding-top: 20px;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* ------------------------------ CSS pour la page d'inscription ------------------------------ */
+
+.label{
+	padding-top: 15px;
+	padding-left: 15px;
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.input{
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+
+.input [type="text"]{
+	font-size: 30px;
+}
+
+.input [type="password"]{
+	font-size: 30px;
+}
+
+.input [type="email"]{
+	font-size: 30px;
+}
+
+.input [type="submit"]{
+	display: block;
+	margin: auto;
+	border-radius: 15px;
+	width: 250px;
+	height: 50px;
+	font-size: 30px;
+	color: #fff;
+	background-color: #0023ff;	
+	text-align: center;
+}
+
+.input [type="submit"]:hover{
+	border-radius: 15px;
+	width: 250px;
+	height: 50px;
+	font-size: 30px;
+	color: #fff;
+	background-color: #010e5f;
+	cursor: pointer;	
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+/* ------------------------------- CSS pour la page de connexion ------------------------------ */
+
+#no_compte{
+	padding-top: 25px;
+	padding-bottom: 20px;
+	text-align: center
+}
+
+#no_compte p a{
+	font-size: 14px;
+}
+
+#no_compte a{
+	color: blue;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+
+  
+  

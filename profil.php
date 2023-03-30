@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Mon Profil</title>
-	<link rel="stylesheet" type="text/css" href="blog.css"> 
+	<link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
 <body>
     <div id="entete_contenu_profil">
