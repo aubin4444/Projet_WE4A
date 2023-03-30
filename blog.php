@@ -44,11 +44,14 @@
 				</div>
 			</div>
 		</div>
+		
 		<div id="profil_recommandation">
+			<br>
 			<div class="contenu_annexe">
 				<div class = "photo_profil"></div>
 				<div id="profil_text">Mon profil</div>
 			</div>
+			<br>
 			<br>
 			<div class="contenu_annexe">
 				
