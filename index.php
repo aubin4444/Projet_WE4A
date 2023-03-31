@@ -11,6 +11,5 @@ if ( $loginStatus["Successful"]) {
 	$rootpath = "localhost/Projet_WE4A";
 	$redirect = "Location:http://".$rootpath."/fil_actu.php";
 	header($redirect);
-    echo("Salut");
 }
 ?>

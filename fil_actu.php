@@ -48,7 +48,7 @@
 		<div id="profil_recommandation">
 			<br>
 			<div class="contenu_annexe">
-				<div class = "photo_profil"></div>
+				<div class ="photo_profil"></div>
 				<div id="profil_text">Mon profil</div>
 			</div>
 			<br>
