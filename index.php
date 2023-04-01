@@ -6,10 +6,11 @@ Connect_db();
 include("./formulaire_connection.php");
 
 $loginStatus = CheckLogin();
-
 if ( $loginStatus["Successful"]) {
-	$rootpath = "localhost/Projet_WE4A";
-	$redirect = "Location:http://".$rootpath."/fil_actu.php";
-	header($redirect);
+	// Ouverture d'une variable session pour stoker l'identifiant de l'utilisateur
+	session_start();
+	$_SESSION['userID'] = $loginStatus["userID"];
+	header("Location:http://localhost/Projet_WE4A/fil_actu.php");
+
 }
 ?>

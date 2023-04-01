@@ -25,32 +25,12 @@
 					</ul>
 				</nav>
 			</header>
-			<div id="poste">
-				<div id = "poste_header">
-					<div class = "profil">
-						<div class="photo_profil">
-							<img src="./images/avatar.png">
-						</div>
-						<div class="nom_profil">
-							<h2>Leotravel</h2>
-						</div>
-					</div>
-					<div class = "date_poste">
-						<p>il y a 1 heure</p>
-					</div>
-				</div>
-				<div id = "poste_image"></div>
-				<div id = "poste_footer">
-					<div id = "poste_description">My Wonderful trip to Bali !!!</div>
-					<div id = "poste_reactions">
-						<div id="like"><img src="./images/like.png"></div>
-						<div id="comment"><img src="./images/comment.png"></div>
-						<div id="share"><img src="./images/share.png"></div>
-					</div>
-				</div>
-			</div>
+
+			<?php
+				include("./post.php");
+			?>
+
 		</div>
-		
 		<div id="profil_recommandation">
 			<br>
 			<div class="contenu_annexe">
