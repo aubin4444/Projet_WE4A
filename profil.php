@@ -37,8 +37,9 @@
             </div>
             <nav id = "menu" class="menu_mon_profil">
                 <ul>
-                  <li><a href="#">Mes Aventures</a></li>
-                  <li><a href="#">Mes Kiffes</a></li>
+                    <li><a href="fil_actu.php">Fil d'Actu</a></li>
+                    <li><a href="#">Mes Aventures</a></li>
+                    <li><a href="#">Mes Kiffes</a></li>
                 </ul>
             </nav>
         </header>

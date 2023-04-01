@@ -27,11 +27,17 @@
 			</header>
 			<div id="poste">
 				<div id = "poste_header">
-					<div id = "profil">
-						<div id = "photo_profil"></div>
-						<div id = "nom_profil">Leotravel</div>
+					<div class = "profil">
+						<div class="photo_profil">
+							<img src="./images/avatar.png">
+						</div>
+						<div class="nom_profil">
+							<h2>Leotravel</h2>
+						</div>
 					</div>
-					<div id = "date_poste">il y a 1 heure</div>
+					<div class = "date_poste">
+						<p>il y a 1 heure</p>
+					</div>
 				</div>
 				<div id = "poste_image"></div>
 				<div id = "poste_footer">
@@ -48,7 +54,11 @@
 		<div id="profil_recommandation">
 			<br>
 			<div class="contenu_annexe">
-				<div class ="photo_profil"></div>
+				<a href="profil.php">	
+					<div class="photo_profil_perso">
+						<img src="./images/avatar_perso.png">
+					</div>
+				</a>
 				<div id="profil_text">Mon profil</div>
 			</div>
 			<br>
