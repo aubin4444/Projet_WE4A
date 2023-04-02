@@ -66,11 +66,11 @@
 				<div id="recommandations">Recommandations</div>
 				<div class="destination">
 					<div>#1 Croatie</div>
-					<div class = "photo_destination"><img src="./images/Croatie.jpg"></div>
+					<div class = "photo_destination"><img src="./images/photo_post/Croatie.jpg"></div>
 				</div>
 				<div class="destination">
 					<div>#2 Laponie</div>
-					<div class = "photo_destination"><img src="./images/Laponie.jpg"></div>
+					<div class = "photo_destination"><img src="./images/photo_post/Laponie.jpg"></div>
 				</div>
 			</div>
 		</div>

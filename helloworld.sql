@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 01 Avril 2023 à 13:29
+-- Généré le :  Dim 02 Avril 2023 à 15:33
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -56,6 +56,22 @@ CREATE TABLE `destination` (
   `pays` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `destination`
+--
+
+INSERT INTO `destination` (`id`, `nom`, `pays`) VALUES
+(1, 'Tokyo', 'Japon'),
+(2, 'Paris', 'France'),
+(3, 'New York', 'États-Unis'),
+(4, 'Rome', 'Italie'),
+(5, 'Londres', 'Royaume-Uni'),
+(6, 'Sydney', 'Australie'),
+(7, 'Rio de Janeiro', 'Brésil'),
+(8, 'Dubai', 'Émirats arabes unis'),
+(9, 'Cape Town', 'Afrique du Sud'),
+(10, 'Santorin', 'Grèce');
+
 -- --------------------------------------------------------
 
 --
@@ -67,9 +83,25 @@ CREATE TABLE `post` (
   `image` varchar(200) DEFAULT NULL,
   `is_like` tinyint(1) DEFAULT NULL,
   `description` varchar(500) DEFAULT NULL,
-  `id_destination` int(11) DEFAULT NULL,
-  `id_utilisateur` int(11) DEFAULT NULL
+  `id_destination` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `post`
+--
+
+INSERT INTO `post` (`id`, `image`, `is_like`, `description`, `id_destination`, `id_utilisateur`) VALUES
+(1, './images/photo_post/France.jpg', 1, '"Wine, cheese, art, and architecture - France has it all. Je suis tombé amoureux!', 2, 5),
+(2, './images/photo_post/Angleterre.jpg', 0, 'Exploring the charming countryside and iconic landmarks of England was a true delight.', 2, 3),
+(3, './images/photo_post/Russie.jpg', 1, 'The grandeur of Russia\'s architecture and culture left me speechless', 3, 4),
+(4, './images/photo_post/Japon.jpg', 0, 'The blend of tradition and modernity in Japan is simply fascinating', 1, 9),
+(5, './images/photo_post/Etats_Unis.jpg', 1, 'From the bustling cities to the awe-inspiring natural wonders, the United States never ceases to amaze me.', 2, 6),
+(6, './images/photo_post/Bali.jpg', 0, 'My Wonderful trip to Bali !!!', 3, 7),
+(7, './images/photo_post/Laponie.jpg', 1, 'Experiencing the magical winter wonderland of Lapland was a dream come true.', 1, 8),
+(8, './images/photo_post/Italie.jpg', 0, 'Italy stole my heart with its stunning architecture and delicious food.', 2, 2),
+(9, './images/photo_post/Croatie.jpg', 1, 'Discovering the hidden gems of Croatia was truly amazing.', 3, 10),
+(10, './images/photo_post/Chine.jpg', 0, 'Unforgettable memories from my trip to China!', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -96,11 +128,11 @@ INSERT INTO `utilisateur` (`id`, `prenom`, `nom`, `pseudo`, `email`, `mot_de_pas
 (3, 'Lucas', 'Leroy', 'lucas_l', 'lucas.leroy@mail.com', 'pass_lucas', './images/photo_de_profil/pdp_lucas.jpg'),
 (4, 'Marie', 'Garcia', 'marie_g', 'marie.garcia@mail.com', 'pass_marie', './images/photo_de_profil/pdp_marie.jpg'),
 (5, 'Alex', 'Dubois', 'alex_d', 'alex.dubois@mail.com', 'pass_alex', './images/photo_de_profil/pdp_alex.jpg'),
-(6, 'Sophie', 'Rousseau', 'sophie_r', 'sophie.rousseau@mail.com', 'pass_sophie', './images/photo_de_profil/avatar.png'),
+(6, 'Sophie', 'Rousseau', 'sophie_r', 'sophie.rousseau@mail.com', 'pass_sophie', './images/photo_de_profil/pdp_sophie.jpg'),
 (7, 'Kevin', 'Nguyen', 'kevin_n', 'kevin.nguyen@mail.com', 'pass_kevin', './images/photo_de_profil/pdp_kevin.jpg'),
-(8, 'Jules', 'Lefevre', 'jules_l', 'jules.lefevre@mail.com', 'pass_jules', './images/photo_de_profil/avatar.png'),
-(9, 'Emma', 'Moreau', 'emma_m', 'emma.moreau@mail.com', 'pass_emma', './images/photo_de_profil/avatar.png'),
-(10, 'Hugo', 'Girard', 'hugo_g', 'hugo.girard@mail.com', 'pass_hugo', './images/photo_de_profil/avatar.png'),
+(8, 'Jules', 'Lefevre', 'jules_l', 'jules.lefevre@mail.com', 'pass_jules', './images/photo_de_profil/pdp_jules.jpg'),
+(9, 'Emma', 'Moreau', 'emma_m', 'emma.moreau@mail.com', 'pass_emma', './images/photo_de_profil/pdp_emma.jpg'),
+(10, 'Hugo', 'Girard', 'hugo_g', 'hugo.girard@mail.com', 'pass_hugo', './images/photo_de_profil/pdp_hugo.jpg'),
 (19, 'Bonnefoy', 'Aubin', 'aubin12', 'aubin.bonnefoy25@hotmail.fr', '123456', './images/photo_de_profil/avatar.png');
 
 --
@@ -133,8 +165,8 @@ ALTER TABLE `destination`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_destination` (`id_destination`),
-  ADD KEY `id_utilisateur` (`id_utilisateur`);
+  ADD KEY `id_utilisateur` (`id_utilisateur`),
+  ADD KEY `id_destination` (`id_destination`);
 
 --
 -- Index pour la table `utilisateur`
@@ -146,6 +178,16 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour les tables exportées
 --
 
+--
+-- AUTO_INCREMENT pour la table `destination`
+--
+ALTER TABLE `destination`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT pour la table `post`
+--
+ALTER TABLE `post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
@@ -173,8 +215,8 @@ ALTER TABLE `commentaire`
 -- Contraintes pour la table `post`
 --
 ALTER TABLE `post`
-  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`id_destination`) REFERENCES `destination` (`id`),
-  ADD CONSTRAINT `post_ibfk_2` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
+  ADD CONSTRAINT `post_destination` FOREIGN KEY (`id_destination`) REFERENCES `destination` (`id`),
+  ADD CONSTRAINT `post_utilisateur` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
