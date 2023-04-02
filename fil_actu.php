@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+	include("./fonctions_BDD.php");
+	// Si la BDD n'est pas encore connecté alors
+	if(!is_db_connected()){
+		// Connection à la BDD
+		connect_db();
+	}
+
+	// Ouverture de la session afin de récupérer l'identifiant de l'utilisateur courant
+	session_start();
+?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -25,22 +36,22 @@
 					</ul>
 				</nav>
 			</header>
-
+			<br><br><br><br><br><br><br><br><br><br><br><br>
 			<?php
+				include("./post.php");
+				include("./post.php");
+				include("./post.php");
+				include("./post.php");
+				include("./post.php");
 				include("./post.php");
 			?>
 
 		</div>
 		<div id="profil_recommandation">
 			<br>
-			<div class="contenu_annexe">
-				<a href="profil.php">	
-					<div class="photo_profil_perso">
-						<img src="./images/avatar_perso.png">
-					</div>
-				</a>
-				<div id="profil_text">Mon profil</div>
-			</div>
+			<?php
+				include("./profil_fil_actu.php");
+			?>
 			<br>
 			<br>
 			<div class="contenu_annexe">

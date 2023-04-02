@@ -1,6 +1,6 @@
 <?php
 // Fonction de connaction à la BDD
-function Connect_db(){
+function connect_db(){
     // Création des variables de connection
     $servername = "localhost";
     $username = "root";
@@ -15,6 +15,17 @@ function Connect_db(){
     die("Erreur de connection : " . $conn->connect_error);
     }
 }
+
+function is_db_connected(){
+    global $conn;
+    return isset($conn) && !is_null($conn);
+}
+
+function disconnect_db(){
+	global $conn;
+	$conn->close();
+}
+
 
 function SecurizeString_ForSQL($string) {
     $string = trim($string);

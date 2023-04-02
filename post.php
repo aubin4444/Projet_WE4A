@@ -1,14 +1,9 @@
 
 <?php
-// Connection à la BDD
-include("./fonctions_BDD.php");
-connect_db();
 // Fichier permettant d'implémenter des animations JS
 include("./JavaScript/animation_simple.php");
 
-// Ouverture de la session afin de récupérer l'identifiant de l'utilisateur courant
-session_start();
-// Récupération du pseudo de l'utilisateur courant
+// Récupération du pseudo et de la photo de profil de l'utilisateur courant
 $query = "SELECT pseudo, photo_profil FROM `utilisateur` WHERE id = '".$_SESSION["userID"]."';";
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
