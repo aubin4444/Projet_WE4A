@@ -38,6 +38,16 @@
 			</header>
 			<br><br><br><br><br><br><br><br><br><br><br><br>
 			<?php
+				// Récupération de l'id le plus élevé de la table post (dernier post éffectué)
+				$query = "SELECT MAX(id) FROM `destination`";
+				$result = $conn->query($query);
+				$row = $result->fetch_assoc();
+				$_SESSION['nb_posts'] = $row["MAX(id)"];
+			
+				include("./post.php");
+				include("./post.php");
+				include("./post.php");
+				include("./post.php");
 				include("./post.php");
 				include("./post.php");
 				include("./post.php");
@@ -48,12 +58,9 @@
 
 		</div>
 		<div id="profil_recommandation">
-			<br>
 			<?php
 				include("./profil_fil_actu.php");
 			?>
-			<br>
-			<br>
 			<div class="contenu_annexe">
 				
 				<div id="recommandations">Recommandations</div>
@@ -62,7 +69,7 @@
 					<div class = "photo_destination"><img src="./images/Croatie.jpg"></div>
 				</div>
 				<div class="destination">
-					<div>#1 Laponie</div>
+					<div>#2 Laponie</div>
 					<div class = "photo_destination"><img src="./images/Laponie.jpg"></div>
 				</div>
 			</div>

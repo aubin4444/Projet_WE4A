@@ -3,11 +3,22 @@
 // Fichier permettant d'implémenter des animations JS
 include("./JavaScript/animation_simple.php");
 
-// Récupération du pseudo et de la photo de profil de l'utilisateur courant
-$query = "SELECT pseudo, photo_profil FROM `utilisateur` WHERE id = '".$_SESSION["userID"]."';";
+// Récupération de la variable de session nb_posts correspondant à l'id du dernier post non publié 
+$postID = $_SESSION['nb_posts'];
+// Décrémentation de cette variable pour passer au post précédent
+$_SESSION['nb_posts'] = $_SESSION['nb_posts'] - 1;
+
+// Récupération de l'id de l'auteur du post
+$query = "SELECT id_utilisateur FROM `post` WHERE id = '".$postID."';";
+$result = $conn->query($query);
+$row = $result->fetch_assoc();
+
+// Récupération du pseudo et de la photo de profil de l'utilisateur auteur du post
+$query = "SELECT pseudo, photo_profil FROM `utilisateur` WHERE id = '".$row["id_utilisateur"]."';";
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 ?>
+
 <!--Publication-->
 <div id="poste">
     <!--Header de la publication-->
@@ -31,13 +42,19 @@ $row = $result->fetch_assoc();
 	</div>
 
     <!--Image publiée-->
+	<?php
+	// Récupération de l'image et de la description du post
+	$query = "SELECT image, description FROM `post` WHERE id = '".$postID."';";
+	$result = $conn->query($query);
+	$row = $result->fetch_assoc();
+	?>
 	<div id = "poste_image">
-        <img src="./images/paysage.jpg">
+        <img src=<?php echo($row["image"]); ?>>
     </div>
 
     <!--Footer de la publication-->
 	<div id = "poste_footer">
-		<div id = "poste_description">My Wonderful trip to Bali !!!</div>
+		<div id = "poste_description"><?php echo($row["description"]); ?></div>
 		<div id = "poste_reactions">
 			<div id="like"><img id="like_img" src="./images/like_off.png" onclick="like_click()"></div>
 			<div id="comment"><img src="./images/comment.png"></div>

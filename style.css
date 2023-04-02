@@ -44,8 +44,9 @@ h1{
 }
   
 #menu ul li {
-	float: left;
 	border-right: 1px solid rgba(18, 18, 18, 0.3);
+	margin-top : 0.5%;
+	margin-bottom : 0.5%;
 }
 
 #menu ul :last-child {
@@ -58,13 +59,15 @@ h1{
 	text-align: center;
 	padding: 10px;
 	text-decoration: none;
-	border-radius: 10px;
+	border-radius: 15px;
 }
   
 #menu ul li a:hover {
+	margin-right: 3px;
 	background-color: white;
+	height: fit-content;
+	text-align: center;
 	color: black;
-	font-style: bold;
 }
 
 /* -------------------------------------------------------------------------------------------- */
@@ -95,7 +98,7 @@ h1{
 
 #profil_recommandation {
 	width: 30%;
-	height: 90%;
+	height: 100%;
 	position: fixed;
 	margin-left: 62%;
 }
@@ -193,25 +196,26 @@ h1{
 
 .contenu_annexe {
 	width: 90%;
-	height: 50%;
+	height: 45%;
 	justify-content: space-around;
 	align-items: center;
 	border: 2px solid #ddd;
 	border-radius: 15px;
 	background-color: white;
+	margin-top: 6%;
 }
 
 .photo_profil_perso {
 	width: 30%;
 	height: 30%;
 	margin-top: 5%;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 35%;
+	margin-right: 35%;
 }
 
 .photo_profil_perso img{
-	width: 115px;
-	height: 115px;
+	width: 100%;
+	height: 100%;
 	border-radius: 50%;
 	margin: 0;
 }
@@ -225,7 +229,7 @@ h1{
 
 #recommandations{
 	width: 100%;
-	height: 15%;
+	height: 10%;
 	margin-top: 5%;
 	text-align: center;
 	font-family: k2d;
@@ -327,7 +331,7 @@ h1{
 
 .menu_mon_profil{
 	position: absolute;
-	width: 80%;
+	width: 800%;
 	top: 160px;
 	left: 7%;
 }
