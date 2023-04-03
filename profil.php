@@ -23,7 +23,7 @@ $row = $result->fetch_assoc();
 ?>
 
 <body>
-    <div id="entete_contenu_profil">
+<div id="entete_contenu_profil">
         <header>
             <div id="mon_profil">
                 <!--affichage de la photo de profil de l'utilisateur courant-->
@@ -67,10 +67,11 @@ $row = $result->fetch_assoc();
         </header>
         <br>
     </div>
-    <div id="poste">
-        <p class="texte">
-            //postes
-        </p>
-    </div>
+
+    <?php
+        include("./post_profil.php");
+    ?>
+    <br><br>
+
 </body>
 </html>
