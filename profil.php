@@ -69,7 +69,13 @@ $row = $result->fetch_assoc();
     </div>
 
     <?php
-        include("./post_profil.php");
+        $query = "SELECT Count(*) AS nb_post FROM `post` WHERE id_utilisateur = '".$_SESSION['userID']."';";
+        $result = $conn->query($query);
+        $row = $result->fetch_assoc();
+        $limit_post = $row['nb_post'];
+        for($i = 0; $i < $limit_post; $i++){
+            include("./post_profil.php");
+        }
     ?>
     <br><br>
 

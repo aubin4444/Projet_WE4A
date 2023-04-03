@@ -47,11 +47,12 @@ $row = $result->fetch_assoc();
     <!--Footer de la publication-->
 	<div id = "poste_footer">
 		<div id = "poste_description"><?php echo($row["description"]); ?></div>
+        <br>
 		<div id = "poste_reactions">
 			<div id="like"><img id="like_img" src="./images/like_off.png" onclick="like_click()"></div>
 			<div id="comment"><img src="./images/comment.png"></div>
 			<div id="share"><img src="./images/share.png"></div>
 		</div>
 	</div>
-
 </div>
+<br><br>
