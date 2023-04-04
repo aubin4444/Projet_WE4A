@@ -36,8 +36,18 @@ $row = $result->fetch_assoc();
                     ?>
                 </span>
             </div>
+            <?php
+                $query_post = "SELECT Count(*) AS nb_posts FROM `post` WHERE id_utilisateur = '".$_SESSION['userID']."';";
+                $result_post = $conn->query($query_post);
+                $row_post = $result_post->fetch_assoc();
+
+            ?>
             <div id="mes_postes">
-                <span>999</span>
+                <span>
+                    <?php
+                        echo($row_post['nb_posts']);
+                    ?>
+                </span>
                 <br/>
                 <span>postes</span>
             </div>
