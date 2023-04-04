@@ -28,8 +28,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `ami` (
   `id_utilisateur` int(11) NOT NULL,
-  `id_amis` int(11) NOT NULL
+  `id_ami` int(11) NOT NULL,
+  `isAmi` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `ami`
+--
+
+INSERT INTO `ami` (`id_utilisateur`, `id_ami`) VALUES
+(2, 5),
+(6, 2),
+(4, 8),
+(3, 9),
+(2, 3),
+(6, 7),
+(8, 2),
+(3, 4),
+(5, 3),
+(9, 5);
 
 -- --------------------------------------------------------
 
@@ -143,8 +160,10 @@ INSERT INTO `utilisateur` (`id`, `prenom`, `nom`, `pseudo`, `email`, `mot_de_pas
 -- Index pour la table `ami`
 --
 ALTER TABLE `ami`
-  ADD PRIMARY KEY (`id_utilisateur`,`id_amis`),
-  ADD KEY `id_amis` (`id_amis`);
+  ADD PRIMARY KEY (`id_utilisateur`, `id_ami`),
+  ADD KEY `id_utilisateur` (`id_utilisateur`),
+  ADD KEY `id_ami` (`id_ami`);
+
 
 --
 -- Index pour la table `commentaire`
@@ -202,7 +221,7 @@ ALTER TABLE `utilisateur`
 --
 ALTER TABLE `ami`
   ADD CONSTRAINT `ami_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`),
-  ADD CONSTRAINT `ami_ibfk_2` FOREIGN KEY (`id_amis`) REFERENCES `utilisateur` (`id`);
+  ADD CONSTRAINT `ami_ibfk_2` FOREIGN KEY (`id_ami`) REFERENCES `utilisateur` (`id`);
 
 --
 -- Contraintes pour la table `commentaire`
