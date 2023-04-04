@@ -38,21 +38,6 @@
 			</header>
 			<br><br><br><br><br><br><br><br><br><br><br><br>
 			<?php
-				// Récupération de l'id le plus élevé de la table post (dernier post éffectué)
-				$query = "SELECT MAX(id) FROM `destination`";
-				$result = $conn->query($query);
-				$row = $result->fetch_assoc();
-				$_SESSION['nb_posts'] = $row["MAX(id)"];
-			
-				include("./post.php");
-				include("./post.php");
-				include("./post.php");
-				include("./post.php");
-				include("./post.php");
-				include("./post.php");
-				include("./post.php");
-				include("./post.php");
-				include("./post.php");
 				include("./post.php");
 			?>
 
