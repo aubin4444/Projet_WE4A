@@ -67,7 +67,7 @@ $row = $result->fetch_assoc();
         </header>
         <br>
     </div>
-
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <?php
         include("./post_profil.php");
     ?>
