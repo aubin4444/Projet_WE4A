@@ -302,7 +302,7 @@ h1{
 	font-weight: bold;
 }
 
-#followers{
+#amis{
 	position: absolute;
 	top: 75px;
 	left: 50%;
@@ -310,7 +310,7 @@ h1{
 	font-weight: bold;
 }
 
-#following{
+#likes{
 	position: absolute;
 	top: 75px;
 	left: 75%;
@@ -320,7 +320,7 @@ h1{
 
 #plus{
 	position: absolute;
-	top: 2.5%;
+	top: 10%;
 	left: 92%;
 }
 
@@ -331,7 +331,7 @@ h1{
 
 #setting{
 	position: absolute;
-	top: 2.25%;
+	top: 10%;
 	left: 95%;
 }
 
@@ -353,6 +353,13 @@ h1{
 	border: 2px solid #aaa;
 	border-radius: 15px;
 	margin: auto;
+}
+
+#aucun_posts{
+	margin: auto;
+	text-align: center;
+	font-size: 50px;
+	color: #656565;
 }
 
 /* -------------------------------------------------------------------------------------------- */

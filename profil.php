@@ -40,7 +40,6 @@ $row = $result->fetch_assoc();
                 $query_post = "SELECT Count(*) AS nb_posts FROM `post` WHERE id_utilisateur = '".$_SESSION['userID']."';";
                 $result_post = $conn->query($query_post);
                 $row_post = $result_post->fetch_assoc();
-
             ?>
             <div id="mes_postes">
                 <span>
@@ -51,15 +50,24 @@ $row = $result->fetch_assoc();
                 <br/>
                 <span>postes</span>
             </div>
-            <div id="followers">
-                <span>999</span>
+            <?php
+                $query_amis = "SELECT COUNT(*) AS nb_amis FROM `ami` WHERE id_utilisateur = '".$_SESSION['userID']."' AND isAmi = 1;";
+                $result_amis = $conn->query($query_amis);
+                $row_amis = $result_amis->fetch_assoc();
+            ?>
+            <div id="amis">
+                <span>
+                    <?php
+                        echo($row_amis['nb_amis']);
+                    ?>
+                </span>
                 <br/>
-                <span>followers</span>
+                <span>amis</span>
             </div>
-            <div id="following">
+            <div id="likes">
                 <span>999</span>
                 <br/>
-                <span>following</span>
+                <span>likes</span>
             </div>
             <div id="plus">
                 <img src=".\images\plus.jpg">
@@ -78,8 +86,17 @@ $row = $result->fetch_assoc();
         <br>
     </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div id="aucun_posts">
+        <?php
+            if($row_post['nb_posts'] == 0){
+                echo("Aucun posts");
+            } 
+        ?>
+    </div>
     <?php
-        include("./post_profil.php");
+        if($row_post['nb_posts'] > 0){
+            include("./post_profil.php");
+        }
     ?>
     <br><br>
 
