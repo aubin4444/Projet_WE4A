@@ -374,7 +374,6 @@ h1{
 .body_inscription_connexion{
 	margin: 0;
 	padding: 0;
-	background-color: white;
 }
 
 .formulaire_inscription_connexion{
@@ -382,16 +381,16 @@ h1{
 	width: 40%;
 	margin: auto;
 	padding-bottom: 20px;
+	border : 2px solid #ddd;
+	border-radius: 15px;
 }
 
 .entete_inscription_connexion header{
 	height: 100px;
-	background-color: #2f2f2f;
 }
 
 .entete_inscription_connexion h1{
 	text-align: center;
-	color: #fff;
 	padding-top: 20px;
 }
 
@@ -413,8 +412,8 @@ h1{
 }
 
 .input{
-	padding-left: 15px;
-	padding-bottom: 15px;
+	padding-left: auto;
+	padding-bottom: auto;
 }
 
 .input [type="text"]{
@@ -437,7 +436,7 @@ h1{
 	height: 50px;
 	font-size: 30px;
 	color: #fff;
-	background-color: #0023ff;	
+	background-color: #31D1F5;	
 	text-align: center;
 }
 
