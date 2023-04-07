@@ -70,7 +70,7 @@ $row = $result->fetch_assoc();
                 <span>likes</span>
             </div>
             <div id="plus">
-                <img src=".\images\plus.jpg">
+                <a href = "nouveau_post.php"><img src=".\images\plus.jpg"></a>
             </div>
             <div id="setting">
                 <img src=".\images\setting.png">

@@ -374,7 +374,7 @@ h1{
 .body_inscription_connexion{
 	margin: 0;
 	padding: 0;
-	background-image: url("images/paysage.jpg");
+	background-color: white;
 }
 
 .formulaire_inscription_connexion{
