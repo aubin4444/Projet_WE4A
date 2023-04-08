@@ -9,8 +9,10 @@ $result1 = $conn->query($query);
 //Affichage de chacun des posts 
 while($post = $result1->fetch_assoc()){
 
+	// Récupération de l'id de l'auteur du post
+	$id = $post["id_utilisateur"];
 	// Récupération du pseudo et de la photo de profil de l'utilisateur auteur du post
-	$query = "SELECT pseudo, photo_profil FROM `utilisateur` WHERE id = '".$post["id_utilisateur"]."';";
+	$query = "SELECT pseudo, photo_profil FROM `utilisateur` WHERE id = '".$id."';";
 	$result = $conn->query($query);
 	$row = $result->fetch_assoc();
 	?>
@@ -24,12 +26,13 @@ while($post = $result1->fetch_assoc()){
 					<img src=<?php echo($row["photo_profil"]); ?>>
 				</div>
 				<div class="nom_profil">
-					<h2>
+					<!--Lors d'un clique sur le nom du profil, envoie de l'id de l'auteur du post par la méthode get-->
+					<a href = "<?php echo("./profil.php?id=$id")?>" id ="lien_profil"><h2>
 						<?php 
 							// Affichage pseudo
 							echo($row["pseudo"]);
 						?>
-					</h2>
+					</h2></a>
 				</div>
 			</div>
 			<div class = "date_poste">

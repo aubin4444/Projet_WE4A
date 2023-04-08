@@ -16,8 +16,9 @@ include("./JavaScript/animation_simple.php");
 
 // Ouverture de la session afin de récupérer l'identifiant de l'utilisateur courant
 session_start();
+$id = $_GET["id"];
 // Récupération du pseudo de l'utilisateur courant
-$query = "SELECT pseudo, photo_profil FROM `utilisateur` WHERE id = '".$_SESSION["userID"]."';";
+$query = "SELECT pseudo, photo_profil FROM `utilisateur` WHERE id = '".$id."';";
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 ?>
@@ -37,7 +38,7 @@ $row = $result->fetch_assoc();
                 </span>
             </div>
             <?php
-                $query_post = "SELECT Count(*) AS nb_posts FROM `post` WHERE id_utilisateur = '".$_SESSION['userID']."';";
+                $query_post = "SELECT Count(*) AS nb_posts FROM `post` WHERE id_utilisateur = '".$id."';";
                 $result_post = $conn->query($query_post);
                 $row_post = $result_post->fetch_assoc();
             ?>
@@ -51,7 +52,7 @@ $row = $result->fetch_assoc();
                 <span>postes</span>
             </div>
             <?php
-                $query_amis = "SELECT COUNT(*) AS nb_amis FROM `ami` WHERE id_utilisateur = '".$_SESSION['userID']."' AND isAmi = 1;";
+                $query_amis = "SELECT COUNT(*) AS nb_amis FROM `ami` WHERE id_utilisateur = '".$id."' AND isAmi = 1;";
                 $result_amis = $conn->query($query_amis);
                 $row_amis = $result_amis->fetch_assoc();
             ?>

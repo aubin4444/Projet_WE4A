@@ -148,6 +148,11 @@ h1{
 	font-size: medium;
 }
 
+#lien_profil{
+	text-decoration: none;
+	color: black;
+}
+
 .date_poste{
 	margin-right: 20px;
 	text-align: right;

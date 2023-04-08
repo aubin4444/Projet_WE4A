@@ -1,7 +1,7 @@
 
 <?php
 // Récupération de l'id de l'auteur du post
-$query = "SELECT id_utilisateur, image, description FROM `post` WHERE id_utilisateur = '".$_SESSION['userID']."';";
+$query = "SELECT id_utilisateur, image, description FROM `post` WHERE id_utilisateur = '".$_GET["id"]."';";
 $result = $conn->query($query);
 //$row = $result->fetch_assoc();
 
