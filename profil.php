@@ -18,7 +18,7 @@ include("./JavaScript/animation_simple.php");
 session_start();
 $id = $_GET["id"];
 // Récupération du pseudo de l'utilisateur courant
-$query = "SELECT pseudo, photo_profil FROM `utilisateur` WHERE id = '".$id."';";
+$query = "SELECT id, pseudo, photo_profil FROM `utilisateur` WHERE id = '".$id."';";
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 ?>
@@ -80,7 +80,21 @@ $row = $result->fetch_assoc();
                 <ul>
                     <li><a href="fil_actu.php">Fil d'Actu</a></li>
                     <li><a href="#">Mes Aventures</a></li>
-                    <li><a href="#">Mes Kiffes</a></li>
+                    <li><a href="#">
+                        <?php
+                            $id = $_GET['id'];
+                            $query_follow = "SELECT isAmi FROM `ami` WHERE id_utilisateur = '".$_SESSION['userID']."' AND id_ami = '".$id."';";
+                            $result_follow = $conn->query($query_follow);
+                            $row_follow = $result_follow->fetch_assoc();
+                            if($id == $_SESSION['userID']){
+                                echo("Mes Kiffes");
+                            } else if($row_follow['isAmi'] == 1){
+                                echo("Ami");
+                            } else {
+                                echo("Follow");
+                            }
+                        ?>
+                    </a></li>
                 </ul>
             </nav>
         </header>

@@ -2,6 +2,7 @@
 <?php
 // Fichier permettant d'implémenter des animations JS
 include("./JavaScript/animation_simple.php");
+//include("./JavaScript/follow.js");
 
 // Récupération de l'image, de la description et de l'identifiant associé au 10 derniers posts
 $query = "SELECT image, description, id_utilisateur FROM `post` ORDER BY id DESC LIMIT 10;";
@@ -16,6 +17,7 @@ while($post = $result1->fetch_assoc()){
 	$result = $conn->query($query);
 	$row = $result->fetch_assoc();
 	?>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<!--Publication-->
 	<div id="poste">
@@ -35,6 +37,18 @@ while($post = $result1->fetch_assoc()){
 					</h2></a>
 				</div>
 			</div>
+			<?php
+				$query_follow = "SELECT id_utilisateur, isAmi FROM `ami`WHERE id_utilisateur = '".$_SESSION['userID']."' AND id_ami = '".$id."';";
+				$result_follow = $conn->query($query_follow);
+				$row_follow = $result_follow->fetch_assoc();
+				if($id != $_SESSION['userID'] && $row_follow['isAmi'] == null){
+					?>
+					<div id="bouton_follower">
+						<button>Follow</button>
+					</div>
+				<?php
+				}
+			?>
 			<div class = "date_poste">
 				<p>il y a 1 heure</p>
 			</div>
@@ -47,7 +61,7 @@ while($post = $result1->fetch_assoc()){
 
 		<!--Footer de la publication-->
 		<div id = "poste_footer">
-			<div id = "poste_description"><?php echo($post["description"]); ?></div>
+			<div id = "poste_description"><?php echo($post["description"]); echo($row_follow['isAmi']);?></div>
 			<div id = "poste_reactions">
 				<div id="like"><img id="like_img" src="./images/like_off.png" onclick="like_click()"></div>
 				<div id="comment"><img src="./images/comment.png"></div>
