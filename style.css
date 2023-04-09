@@ -153,15 +153,16 @@ h1{
 	color: black;
 }
 
-#bouton_follower{
+#link_follower{
 	margin: auto;
 }
 
-#bouton_follower button{
+#link_follower a{
 	width: 75px;
 	height: 25px;
 	text-decoration: none;
 	text-align: center;
+	color: black;
 	font-size: medium;
 	font-weight: bold;
 	border-radius: 5px;
@@ -169,10 +170,11 @@ h1{
 	background-color: #DFDFDF;
 }
 
-#bouton_follower button:hover{
+#link_follower a:hover{
 	width: 75px;
 	height: 25px;
 	text-decoration: none;
+	color: black;
 	text-align: center;
 	font-size: medium;
 	font-weight: bold;

@@ -43,8 +43,9 @@ while($post = $result1->fetch_assoc()){
 				$row_follow = $result_follow->fetch_assoc();
 				if($id != $_SESSION['userID'] && $row_follow['isAmi'] == null){
 					?>
-					<div id="bouton_follower">
-						<button>Follow</button>
+					<script src="./JavaScript/follow.js"></script>
+					<div id="link_follower">
+						<a id="follow" onclick="removeLink()">Follow</a>
 					</div>
 				<?php
 				}
