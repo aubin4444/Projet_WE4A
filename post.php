@@ -62,7 +62,11 @@ while($post = $result1->fetch_assoc()){
 
 		<!--Footer de la publication-->
 		<div id = "poste_footer">
-			<div id = "poste_description"><?php echo($post["description"]); echo($row_follow['isAmi']);?></div>
+			<div id = "poste_description"><?php echo($post["description"]); 
+			echo($row_follow['isAmi']);?>
+			<p>100 j'aimes</p>
+			</div>
+			<hr>
 			<div id = "poste_reactions">
 				<div id="like"><img id="like_img" src="./images/like_off.png" onclick="like_click()"></div>
 				<div id="comment"><img src="./images/comment.png"></div>

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Dim 02 Avril 2023 à 15:33
+-- Généré le :  Lun 10 Avril 2023 à 09:01
 -- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Version de PHP :  7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -36,17 +36,17 @@ CREATE TABLE `ami` (
 -- Contenu de la table `ami`
 --
 
-INSERT INTO `ami` (`id_utilisateur`, `id_ami`) VALUES
-(2, 5),
-(6, 2),
-(4, 8),
-(3, 9),
-(2, 3),
-(6, 7),
-(8, 2),
-(3, 4),
-(5, 3),
-(9, 5);
+INSERT INTO `ami` (`id_utilisateur`, `id_ami`, `isAmi`) VALUES
+(2, 3, NULL),
+(2, 5, NULL),
+(3, 4, NULL),
+(3, 9, NULL),
+(4, 8, NULL),
+(5, 3, NULL),
+(6, 2, NULL),
+(6, 7, NULL),
+(8, 2, NULL),
+(9, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -59,6 +59,18 @@ CREATE TABLE `commentaire` (
   `contenu` varchar(500) DEFAULT NULL,
   `id_utilisateur` int(11) DEFAULT NULL,
   `id_post` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `like`
+--
+
+CREATE TABLE `like` (
+  `id_post` int(11) NOT NULL,
+  `id_utilisateur` int(11) DEFAULT NULL,
+  `is_like` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -98,7 +110,6 @@ INSERT INTO `destination` (`id`, `nom`, `pays`) VALUES
 CREATE TABLE `post` (
   `id` int(11) NOT NULL,
   `image` varchar(200) DEFAULT NULL,
-  `is_like` tinyint(1) DEFAULT NULL,
   `description` varchar(500) DEFAULT NULL,
   `id_destination` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL
@@ -108,17 +119,21 @@ CREATE TABLE `post` (
 -- Contenu de la table `post`
 --
 
-INSERT INTO `post` (`id`, `image`, `is_like`, `description`, `id_destination`, `id_utilisateur`) VALUES
-(1, './images/photo_post/France.jpg', 1, '"Wine, cheese, art, and architecture - France has it all. Je suis tombé amoureux!', 2, 5),
-(2, './images/photo_post/Angleterre.jpg', 0, 'Exploring the charming countryside and iconic landmarks of England was a true delight.', 2, 3),
-(3, './images/photo_post/Russie.jpg', 1, 'The grandeur of Russia\'s architecture and culture left me speechless', 3, 4),
-(4, './images/photo_post/Japon.jpg', 0, 'The blend of tradition and modernity in Japan is simply fascinating', 1, 9),
-(5, './images/photo_post/Etats_Unis.jpg', 1, 'From the bustling cities to the awe-inspiring natural wonders, the United States never ceases to amaze me.', 2, 6),
-(6, './images/photo_post/Bali.jpg', 0, 'My Wonderful trip to Bali !!!', 3, 7),
-(7, './images/photo_post/Laponie.jpg', 1, 'Experiencing the magical winter wonderland of Lapland was a dream come true.', 1, 8),
-(8, './images/photo_post/Italie.jpg', 0, 'Italy stole my heart with its stunning architecture and delicious food.', 2, 2),
-(9, './images/photo_post/Croatie.jpg', 1, 'Discovering the hidden gems of Croatia was truly amazing.', 3, 10),
-(10, './images/photo_post/Chine.jpg', 0, 'Unforgettable memories from my trip to China!', 1, 2);
+INSERT INTO `post` (`id`, `image`, `description`, `id_destination`, `id_utilisateur`) VALUES
+(1, './images/photo_post/France.jpg', '"Wine, cheese, art, and architecture - France has it all. Je suis tombé amoureux!', 2, 5),
+(2, './images/photo_post/Angleterre.jpg', 'Exploring the charming countryside and iconic landmarks of England was a true delight.', 2, 3),
+(3, './images/photo_post/Russie.jpg', 'The grandeur of Russia\'s architecture and culture left me speechless', 3, 4),
+(4, './images/photo_post/Japon.jpg', 'The blend of tradition and modernity in Japan is simply fascinating', 1, 9),
+(5, './images/photo_post/Etats_Unis.jpg', 'From the bustling cities to the awe-inspiring natural wonders, the United States never ceases to amaze me.', 2, 6),
+(6, './images/photo_post/Bali.jpg', 'My Wonderful trip to Bali !!!', 3, 7),
+(7, './images/photo_post/Laponie.jpg', 'Experiencing the magical winter wonderland of Lapland was a dream come true.', 1, 8),
+(8, './images/photo_post/Italie.jpg', 'Italy stole my heart with its stunning architecture and delicious food.', 2, 2),
+(9, './images/photo_post/Croatie.jpg', 'Discovering the hidden gems of Croatia was truly amazing.', 3, 10),
+(10, './images/photo_post/Chine.jpg', 'Unforgettable memories from my trip to China!', 1, 2),
+(14, './images/photo_post/64307e15170176.09422156.jpg', 'Do you want to see my dog ?', 2, 2),
+(15, './images/photo_post/643196851c8488.74501004.png', 'Mon projet mdrrr', 2, 20),
+(16, './images/photo_post/6431a40f2d77f0.92675944.png', 'dghrdth', 2, 3),
+(17, './images/photo_post/6432a4acee3096.58538827.png', 'CRUNCH TIME', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -150,7 +165,8 @@ INSERT INTO `utilisateur` (`id`, `prenom`, `nom`, `pseudo`, `email`, `mot_de_pas
 (8, 'Jules', 'Lefevre', 'jules_l', 'jules.lefevre@mail.com', 'pass_jules', './images/photo_de_profil/pdp_jules.jpg'),
 (9, 'Emma', 'Moreau', 'emma_m', 'emma.moreau@mail.com', 'pass_emma', './images/photo_de_profil/pdp_emma.jpg'),
 (10, 'Hugo', 'Girard', 'hugo_g', 'hugo.girard@mail.com', 'pass_hugo', './images/photo_de_profil/pdp_hugo.jpg'),
-(19, 'Bonnefoy', 'Aubin', 'aubin12', 'aubin.bonnefoy25@hotmail.fr', '123456', './images/photo_de_profil/avatar.png');
+(19, 'Bonnefoy', 'Aubin', 'aubin12', 'aubin.bonnefoy25@hotmail.fr', '123456', './images/photo_de_profil/avatar.png'),
+(20, 'Aubin', 'Bonnefoy', 'aubin', 'aubin.bonnefo25@hotmail.fr', '258456', './images/photo_de_profil/avatar.png');
 
 --
 -- Index pour les tables exportées
@@ -160,16 +176,23 @@ INSERT INTO `utilisateur` (`id`, `prenom`, `nom`, `pseudo`, `email`, `mot_de_pas
 -- Index pour la table `ami`
 --
 ALTER TABLE `ami`
-  ADD PRIMARY KEY (`id_utilisateur`, `id_ami`),
+  ADD PRIMARY KEY (`id_utilisateur`,`id_ami`),
   ADD KEY `id_utilisateur` (`id_utilisateur`),
   ADD KEY `id_ami` (`id_ami`);
-
 
 --
 -- Index pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
   ADD PRIMARY KEY (`id`),
+  ADD KEY `id_utilisateur` (`id_utilisateur`),
+  ADD KEY `id_post` (`id_post`);
+
+--
+-- Index pour la table `like`
+--
+ALTER TABLE `like`
+  ADD PRIMARY KEY (`id_post`, `id_utilisateur`),
   ADD KEY `id_utilisateur` (`id_utilisateur`),
   ADD KEY `id_post` (`id_post`);
 
@@ -206,15 +229,23 @@ ALTER TABLE `destination`
 -- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- Contraintes pour les tables exportées
 --
+
+--
+-- Contraintes pour la table `like`
+--
+ALTER TABLE `like`
+  ADD CONSTRAINT `like_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`),
+  ADD CONSTRAINT `like_ibfk_2` FOREIGN KEY (`id_post`) REFERENCES `post` (`id`);
+
 
 --
 -- Contraintes pour la table `ami`
