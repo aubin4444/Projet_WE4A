@@ -16,7 +16,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Page d'acceuil</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="./JavaScript/follow.js"></script>
 </head>
 <body >
 	<div id="container">
@@ -37,7 +36,7 @@
 					</ul>
 				</nav>
 			</header>
-			<br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br><br><br><br><br><br><br><br><br><br>
 			<?php
 				include("./post.php");
 			?>
