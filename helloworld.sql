@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 10 Avril 2023 à 09:01
+-- Généré le :  Mar 11 Avril 2023 à 16:42
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -28,25 +28,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `ami` (
   `id_utilisateur` int(11) NOT NULL,
-  `id_ami` int(11) NOT NULL,
-  `isAmi` tinyint(1) DEFAULT NULL
+  `id_ami` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `ami`
 --
 
-INSERT INTO `ami` (`id_utilisateur`, `id_ami`, `isAmi`) VALUES
-(2, 3, NULL),
-(2, 5, NULL),
-(3, 4, NULL),
-(3, 9, NULL),
-(4, 8, NULL),
-(5, 3, NULL),
-(6, 2, NULL),
-(6, 7, NULL),
-(8, 2, NULL),
-(9, 5, NULL);
+INSERT INTO `ami` (`id_utilisateur`, `id_ami`) VALUES
+(2, 3),
+(3, 4),
+(3, 20),
+(4, 3),
+(4, 20),
+(10, 2),
+(10, 6);
 
 -- --------------------------------------------------------
 
@@ -59,18 +55,6 @@ CREATE TABLE `commentaire` (
   `contenu` varchar(500) DEFAULT NULL,
   `id_utilisateur` int(11) DEFAULT NULL,
   `id_post` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `like`
---
-
-CREATE TABLE `like` (
-  `id_post` int(11) NOT NULL,
-  `id_utilisateur` int(11) DEFAULT NULL,
-  `is_like` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -104,6 +88,24 @@ INSERT INTO `destination` (`id`, `nom`, `pays`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `like`
+--
+
+CREATE TABLE `like` (
+  `id_post` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `like`
+--
+
+INSERT INTO `like` (`id_post`, `id_utilisateur`) VALUES
+(4, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `post`
 --
 
@@ -133,7 +135,8 @@ INSERT INTO `post` (`id`, `image`, `description`, `id_destination`, `id_utilisat
 (14, './images/photo_post/64307e15170176.09422156.jpg', 'Do you want to see my dog ?', 2, 2),
 (15, './images/photo_post/643196851c8488.74501004.png', 'Mon projet mdrrr', 2, 20),
 (16, './images/photo_post/6431a40f2d77f0.92675944.png', 'dghrdth', 2, 3),
-(17, './images/photo_post/6432a4acee3096.58538827.png', 'CRUNCH TIME', 2, 3);
+(17, './images/photo_post/6432a4acee3096.58538827.png', 'CRUNCH TIME', 2, 3),
+(18, './images/photo_post/64356c13560d48.66091992.jpg', 'mon chien', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -189,18 +192,18 @@ ALTER TABLE `commentaire`
   ADD KEY `id_post` (`id_post`);
 
 --
--- Index pour la table `like`
---
-ALTER TABLE `like`
-  ADD PRIMARY KEY (`id_post`, `id_utilisateur`),
-  ADD KEY `id_utilisateur` (`id_utilisateur`),
-  ADD KEY `id_post` (`id_post`);
-
---
 -- Index pour la table `destination`
 --
 ALTER TABLE `destination`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `like`
+--
+ALTER TABLE `like`
+  ADD PRIMARY KEY (`id_post`,`id_utilisateur`),
+  ADD KEY `id_utilisateur` (`id_utilisateur`),
+  ADD KEY `id_post` (`id_post`);
 
 --
 -- Index pour la table `post`
@@ -229,7 +232,7 @@ ALTER TABLE `destination`
 -- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
@@ -238,14 +241,6 @@ ALTER TABLE `utilisateur`
 --
 -- Contraintes pour les tables exportées
 --
-
---
--- Contraintes pour la table `like`
---
-ALTER TABLE `like`
-  ADD CONSTRAINT `like_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`),
-  ADD CONSTRAINT `like_ibfk_2` FOREIGN KEY (`id_post`) REFERENCES `post` (`id`);
-
 
 --
 -- Contraintes pour la table `ami`
@@ -260,6 +255,13 @@ ALTER TABLE `ami`
 ALTER TABLE `commentaire`
   ADD CONSTRAINT `commentaire_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`),
   ADD CONSTRAINT `commentaire_ibfk_2` FOREIGN KEY (`id_post`) REFERENCES `post` (`id`);
+
+--
+-- Contraintes pour la table `like`
+--
+ALTER TABLE `like`
+  ADD CONSTRAINT `like_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`),
+  ADD CONSTRAINT `like_ibfk_2` FOREIGN KEY (`id_post`) REFERENCES `post` (`id`);
 
 --
 -- Contraintes pour la table `post`

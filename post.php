@@ -4,8 +4,8 @@
 include("./JavaScript/animation_simple.php");
 
 
-// Récupération de l'image, de la description et de l'identifiant associé au 10 derniers posts
-$query = "SELECT image, description, id_utilisateur FROM `post` ORDER BY id DESC LIMIT 10;";
+// Récupération de l'image, de la description et de l'identifiant associé au 10 derniers posts en omettant les posts de l'utilisateur connecté
+$query = "SELECT image, description, id_utilisateur FROM `post` WHERE id_utilisateur != '".$_SESSION['userID']."' ORDER BY id DESC LIMIT 10;";
 $result1 = $conn->query($query);
 //Affichage de chacun des posts 
 while($post = $result1->fetch_assoc()){
@@ -38,17 +38,19 @@ while($post = $result1->fetch_assoc()){
 				</div>
 			</div>
 			<?php
-				$query_follow = "SELECT id_utilisateur, id_ami, isAmi FROM `ami`WHERE id_utilisateur = '".$_SESSION['userID']."' AND id_ami = '".$id."';";
+				// On regarde si l'amitiée existe déjà dans la BDD
+				$query_follow = "SELECT COUNT(*) FROM `ami`WHERE id_utilisateur = '".$_SESSION['userID']."' AND id_ami = '".$id."';";
 				$result_follow = $conn->query($query_follow);
 				$row_follow = $result_follow->fetch_assoc();
-				if($id != $_SESSION['userID'] && $row_follow['isAmi'] == null){
-					include("./JavaScript/follow.php");
+				// Si l'amitié n'existe pas on affiche un bouton permettant de la créer 
+				if($row_follow["COUNT(*)"] == 0){
 					?>
-					<div id="link_follower">
-						<a id="follow" onclick="is_clicked(<?php $id ?>)">Follow</a>
-					</div>
-				<?php
+						<div id="link_follower">
+							<?php include("./JavaScript/follow.php"); ?>
+						</div>
+					<?php
 				}
+				
 			?>
 			<div class = "date_poste">
 				<p>il y a 1 heure</p>
@@ -63,7 +65,7 @@ while($post = $result1->fetch_assoc()){
 		<!--Footer de la publication-->
 		<div id = "poste_footer">
 			<div id = "poste_description"><?php echo($post["description"]); 
-			echo($row_follow['isAmi']);?>
+			//echo($row_follow['isAmi']);?>
 			<p>100 j'aimes</p>
 			</div>
 			<hr>

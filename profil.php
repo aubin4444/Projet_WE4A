@@ -52,7 +52,7 @@ $row = $result->fetch_assoc();
                 <span>postes</span>
             </div>
             <?php
-                $query_amis = "SELECT COUNT(*) AS nb_amis FROM `ami` WHERE id_utilisateur = '".$id."' AND isAmi = 1;";
+                $query_amis = "SELECT COUNT(*) AS nb_amis FROM `ami` WHERE id_utilisateur = '".$id."';";
                 $result_amis = $conn->query($query_amis);
                 $row_amis = $result_amis->fetch_assoc();
             ?>
@@ -82,7 +82,7 @@ $row = $result->fetch_assoc();
                     <li><a href="#">Mes Aventures</a></li>
                     <li><a href="#">
                         <?php
-                            $id = $_GET['id'];
+                            /*$id = $_GET['id'];
                             $query_follow = "SELECT isAmi FROM `ami` WHERE id_utilisateur = '".$_SESSION['userID']."' AND id_ami = '".$id."';";
                             $result_follow = $conn->query($query_follow);
                             $row_follow = $result_follow->fetch_assoc();
@@ -92,7 +92,7 @@ $row = $result->fetch_assoc();
                                 echo("Ami");
                             } else {
                                 echo("Follow");
-                            }
+                            }*/
                         ?>
                     </a></li>
                 </ul>
