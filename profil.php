@@ -80,21 +80,21 @@ $row = $result->fetch_assoc();
                 <ul>
                     <li><a href="fil_actu.php">Fil d'Actu</a></li>
                     <li><a href="#">Mes Aventures</a></li>
-                    <li><a href="#">
                         <?php
-                            /*$id = $_GET['id'];
-                            $query_follow = "SELECT isAmi FROM `ami` WHERE id_utilisateur = '".$_SESSION['userID']."' AND id_ami = '".$id."';";
+                            $id = $_GET['id'];
+                            $query_follow = "SELECT COUNT(*) FROM `ami`WHERE id_utilisateur = '".$_SESSION['userID']."' AND id_ami = '".$id."';";
                             $result_follow = $conn->query($query_follow);
                             $row_follow = $result_follow->fetch_assoc();
                             if($id == $_SESSION['userID']){
-                                echo("Mes Kiffes");
-                            } else if($row_follow['isAmi'] == 1){
-                                echo("Ami");
+                                ?>
+                                <li><a href="#">Mes Kiffes</a></li>
+                                <?php
+                            } else if($row_follow["COUNT(*)"] != 0){
+                                include("./JavaScript/unfollow_profil.php");
                             } else {
-                                echo("Follow");
-                            }*/
+                                include("./JavaScript/follow_profil.php");
+                            }
                         ?>
-                    </a></li>
                 </ul>
             </nav>
         </header>

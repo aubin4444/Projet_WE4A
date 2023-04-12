@@ -46,7 +46,7 @@ while($post = $result1->fetch_assoc()){
 				if($row_follow["COUNT(*)"] == 0){
 					?>
 						<div id="link_follower">
-							<?php include("./JavaScript/follow.php"); ?>
+							<?php include("./JavaScript/follow_fil_actu.php"); ?>
 						</div>
 					<?php
 				}

@@ -14,3 +14,4 @@
    //Requete de suppression
    //DELETE FROM `ami` WHERE `id_utilisateur` = '10' AND `id_ami` = '7';
 ?>
+
