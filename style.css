@@ -363,6 +363,36 @@ h1{
 	font-weight: bold;
 }
 
+#bouton_follow{
+	position: absolute;
+	top: 80px;
+	left: 90%;
+}
+
+
+#bouton_follow a{
+	text-decoration: none;
+	text-align: center;
+	color: black;
+	font-size: medium;
+	font-weight: bold;
+	border-radius: 5px;
+	border: 2px solid rgba(18, 18, 18, 0.2);
+	background-color: #DFDFDF;
+}
+
+#bouton_follow a:hover{
+	text-decoration: none;
+	color: black;
+	text-align: center;
+	font-size: medium;
+	font-weight: bold;
+	border-radius: 5px;
+	border: 2px solid rgba(18, 18, 18, 0.2);
+	background-color: white;
+	cursor: pointer;	
+}
+
 #plus{
 	position: absolute;
 	top: 10%;

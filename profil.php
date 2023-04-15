@@ -70,6 +70,9 @@ $row = $result->fetch_assoc();
                 <br/>
                 <span>likes</span>
             </div>
+            <div id="bouton_follow">
+                <?php include("./AJAX/follow.php"); ?>
+            </div>
             <div id="plus">
                 <a href = "nouveau_post.php"><img src=".\images\plus.jpg"></a>
             </div>
@@ -89,10 +92,6 @@ $row = $result->fetch_assoc();
                                 ?>
                                 <li><a href="#">Mes Kiffes</a></li>
                                 <?php
-                            } else if($row_follow["COUNT(*)"] != 0){
-                                include("./JavaScript/unfollow_profil.php");
-                            } else {
-                                include("./JavaScript/follow_profil.php");
                             }
                         ?>
                 </ul>
