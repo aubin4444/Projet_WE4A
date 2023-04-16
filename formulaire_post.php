@@ -36,7 +36,7 @@
             </div>
 
             <div class="input">
-                <input type="submit" value="S'inscrire">
+                <input type="submit" value="Poster">
             </div>
         </form>
     </section>

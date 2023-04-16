@@ -8,7 +8,7 @@ function loadSimple(currentText) {
             document.getElementById("follow").innerHTML = this.responseText;
             //Ne plus afficher le bouton follow lorsqu'on clique dessus
             //Car une amitié c'est créée
-            document.getElementById("follow").style.display = "none";
+            document.getElementById("follow").textContent = "";
         } else if (document.getElementById("bouton_follow")){ //Pour le bouton follow du profil
             //Vérifie le bouton follow du profil lorsque qu'on clique dessus
             //Son textContent passe à Ami si il était Follow et Follow s'il était Ami

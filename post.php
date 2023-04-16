@@ -37,6 +37,29 @@ while($post = $result1->fetch_assoc()){
 					</h2></a>
 				</div>
 			</div>
+			<div class = "date_poste">
+				<p>il y a 1 heure</p>
+			</div>
+		</div>
+
+		<!--Image publiée-->
+		<div id = "poste_image">
+			<img src=<?php echo($post["image"]); ?>>
+		</div>
+
+		<!--Footer de la publication-->
+		<div id = "poste_footer">
+			<div id = "poste_description"><?php echo($post["description"]); 
+			//echo($row_follow['isAmi']);?>
+			
+			<p>100 j'aimes</p>
+			</div>
+			<hr>
+			<div id = "poste_reactions">
+				<div id="like"><img id="like_img" src="./images/like_off.png" onclick="like_click()"></div>
+				<div id="comment"><img src="./images/comment.png"></div>
+				<div id="share"><img src="./images/share.png"></div>
+				
 			<?php
 				// On regarde si l'amitiée existe déjà dans la BDD
 				$query_follow = "SELECT COUNT(*) FROM `ami`WHERE id_utilisateur = '".$_SESSION['userID']."' AND id_ami = '".$id."';";
@@ -52,27 +75,6 @@ while($post = $result1->fetch_assoc()){
 				}
 				
 			?>
-			<div class = "date_poste">
-				<p>il y a 1 heure</p>
-			</div>
-		</div>
-
-		<!--Image publiée-->
-		<div id = "poste_image">
-			<img src=<?php echo($post["image"]); ?>>
-		</div>
-
-		<!--Footer de la publication-->
-		<div id = "poste_footer">
-			<div id = "poste_description"><?php echo($post["description"]); 
-			//echo($row_follow['isAmi']);?>
-			<p>100 j'aimes</p>
-			</div>
-			<hr>
-			<div id = "poste_reactions">
-				<div id="like"><img id="like_img" src="./images/like_off.png" onclick="like_click()"></div>
-				<div id="comment"><img src="./images/comment.png"></div>
-				<div id="share"><img src="./images/share.png"></div>
 			</div>
 		</div>
 	</div>

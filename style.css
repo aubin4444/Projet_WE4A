@@ -154,34 +154,19 @@ h1{
 }
 
 #link_follower{
-	margin: auto;
+	margin-left: 380%;
+	margin-top: 2%;
 }
 
 #link_follower a{
-	width: 75px;
-	height: 25px;
-	text-decoration: none;
-	text-align: center;
-	color: black;
-	font-size: medium;
-	font-weight: bold;
-	border-radius: 5px;
-	border: 2px solid rgba(18, 18, 18, 0.2);
-	background-color: #DFDFDF;
+	color: #31D1F5;
+	padding : 5px;
 }
 
 #link_follower a:hover{
-	width: 75px;
-	height: 25px;
-	text-decoration: none;
-	color: black;
-	text-align: center;
-	font-size: medium;
-	font-weight: bold;
-	border-radius: 5px;
-	border: 2px solid rgba(18, 18, 18, 0.2);
-	background-color: white;
+	color: #FFC226;
 	cursor: pointer;	
+	padding : 5px;	
 }
 
 .date_poste{
@@ -367,30 +352,23 @@ h1{
 	position: absolute;
 	top: 80px;
 	left: 90%;
+	
 }
 
 
 #bouton_follow a{
-	text-decoration: none;
-	text-align: center;
-	color: black;
-	font-size: medium;
-	font-weight: bold;
-	border-radius: 5px;
-	border: 2px solid rgba(18, 18, 18, 0.2);
-	background-color: #DFDFDF;
+	color: #31D1F5;
+	border : solid 2px #31D1F5;
+	border-radius: 10px;
+	padding : 5px;
 }
 
 #bouton_follow a:hover{
-	text-decoration: none;
-	color: black;
-	text-align: center;
-	font-size: medium;
-	font-weight: bold;
-	border-radius: 5px;
-	border: 2px solid rgba(18, 18, 18, 0.2);
-	background-color: white;
+	color: #FFC226;
 	cursor: pointer;	
+	border : solid 2px #FFC226;
+	border-radius: 10px;
+	padding : 5px;
 }
 
 #plus{

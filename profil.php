@@ -71,7 +71,13 @@ $row = $result->fetch_assoc();
                 <span>likes</span>
             </div>
             <div id="bouton_follow">
-                <?php include("./AJAX/follow.php"); ?>
+                <?php 
+                    // Si le profil n'est pas celui du compte connecté
+                    if($id != $_SESSION["userID"]){
+                        // Affichage du bouton permettant de follow ou d'unfollow un profil
+                        include("./AJAX/follow.php"); 
+                    }
+                ?>
             </div>
             <div id="plus">
                 <a href = "nouveau_post.php"><img src=".\images\plus.jpg"></a>
