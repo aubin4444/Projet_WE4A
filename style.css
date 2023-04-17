@@ -153,6 +153,11 @@ h1{
 	color: black;
 }
 
+#lien_profil:hover{
+	cursor: pointer;
+	color: #FFC226;
+}
+
 #link_follower{
 	margin-left: 380%;
 	margin-top: 2%;

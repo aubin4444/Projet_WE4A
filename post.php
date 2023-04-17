@@ -17,7 +17,6 @@ while($post = $result1->fetch_assoc()){
 	$result = $conn->query($query);
 	$row = $result->fetch_assoc();
 	?>
-	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
 
 	<!--Publication-->
 	<div id="poste">
@@ -28,13 +27,16 @@ while($post = $result1->fetch_assoc()){
 					<img src=<?php echo($row["photo_profil"]); ?>>
 				</div>
 				<div class="nom_profil">
+					<?php include("./AJAX/follow.php"); ?>
 					<!--Lors d'un clique sur le nom du profil, envoie de l'id de l'auteur du post par la méthode get-->
-					<a href = "<?php echo("./profil.php?id=$id")?>" id ="lien_profil"><h2>
-						<?php 
-							// Affichage pseudo
-							echo($row["pseudo"]);
-						?>
-					</h2></a>
+					<a href = "<?php echo("./profil.php?id=$id")?>" id ="lien_profil">
+						<h2>
+							<?php 
+								// Affichage pseudo
+								echo($row["pseudo"]);
+							?>
+						</h2>
+					</a>
 				</div>
 			</div>
 			<div class = "date_poste">
@@ -70,10 +72,10 @@ while($post = $result1->fetch_assoc()){
 					?>
 						<div id="link_follower">
 							<?php include("./AJAX/follow.php"); ?>
+							<a id="follow_post" onclick="loadSimple(<?php echo $id ?>)">Follow</a>
 						</div>
 					<?php
-				}
-				
+				} 
 			?>
 			</div>
 		</div>

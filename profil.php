@@ -74,8 +74,20 @@ $row = $result->fetch_assoc();
                 <?php 
                     // Si le profil n'est pas celui du compte connecté
                     if($id != $_SESSION["userID"]){
+                        $query_follow = "SELECT COUNT(*) FROM `ami`WHERE id_utilisateur = '".$_SESSION['userID']."' AND id_ami = '".$id."';";
+                        $result_follow = $conn->query($query_follow);
+                        $row_follow = $result_follow->fetch_assoc();
                         // Affichage du bouton permettant de follow ou d'unfollow un profil
                         include("./AJAX/follow.php"); 
+                        if($row_follow["COUNT(*)"] == 0){ //S'il n'y a pas d'amitié entre l'utilisateur courant et l'utilisateur du compte cible afficher Follow
+                            ?>
+                                <a id="follow_profil" onclick="loadSimple(<?php echo $id ?>)">Follow</a>
+                            <?php
+                        } else { //Sinon il y a une amitié donc afficher Ami
+                            ?>
+                                <a id="follow_profil" onclick="loadSimple(<?php echo $id ?>)">Ami</a>
+                            <?php
+                        }
                     }
                 ?>
             </div>
