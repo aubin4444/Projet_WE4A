@@ -122,6 +122,41 @@ h1{
 	justify-content: space-between;
 }
 
+#hpost{
+	height: 10%;
+}
+
+#p_image{
+	width: 100%;
+	margin-top: 30px;
+	height: 300px;
+	border: 0.5px solid #ddd;
+}
+
+#p_submit{
+	border-color: #31D1F5;
+	background-color: white;
+	color: #31D1F5;
+	border-radius: 10px;
+	margin: auto;
+	margin-left: 40%;
+	width: 20%;
+	font-family: k2d;
+	font-size: large;
+}
+
+#p_submit:hover{
+	border-color: #FFC226;
+	background-color: white;
+	color: #FFC226;
+	border-radius: 10px;
+	margin: auto;
+	margin-left: 40%;
+	width: 20%;
+	font-family: k2d;
+	font-size: large;
+}
+
 #poste_header_profil {
 	padding-top: 5%;
 }
@@ -427,7 +462,7 @@ h1{
 
 
 
-/* ----------------------------- CSS commun connexion / inscription --------------------------- */
+/* ----------------------------- CSS commun connexion / inscription / post --------------------------- */
 
 .body_inscription_connexion{
 	margin: 0;
@@ -439,6 +474,14 @@ h1{
 	width: 40%;
 	margin: auto;
 	padding-bottom: 20px;
+	border : 2px solid #ddd;
+	border-radius: 15px;
+}
+
+#formulaire_post{
+	width: 40%;
+	height: 530px;
+	margin: auto;
 	border : 2px solid #ddd;
 	border-radius: 15px;
 }
