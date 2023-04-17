@@ -44,7 +44,7 @@
 
 		<div id="no_compte">
 			<p>Si vous n'avez pas de compte</p>
-			<a href="nouveau_compte.php" style="color:#FFC226;">S'inscrire ici</a>
+			<a href="nouveau_compte.php" style="color:#57cc99;">S'inscrire ici</a>
 		</div>
 	</section>
 	<br>

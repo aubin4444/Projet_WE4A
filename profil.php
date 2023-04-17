@@ -26,6 +26,10 @@ $row = $result->fetch_assoc();
 <body>
 <div id="entete_contenu_profil">
         <header>
+            <div id="logo_site_profil" >
+				<img src="./images/logo_site/logo1.png">
+			</div>
+            <br>
             <div id="mon_profil">
                 <!--affichage de la photo de profil de l'utilisateur courant-->
                 <img src=<?php echo($row["photo_profil"]); ?>>

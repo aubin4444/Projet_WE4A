@@ -22,12 +22,10 @@
 		<div id="entete_contenu">
 			<header>
 				<br>
-				<h1>
-					<span style="color:#31D1F5">¡</span>
-					<span style="color:#FFC226">Hello</span>
-					<span style="color:#31D1F5">World</span>
-					<span style="color:#FFC226">!</span>
-				</h1>
+				<div id="logo_site" >
+					<img src="./images/logo_site/logo1.png">
+				</div>
+				<br>
 				<nav id = "menu">
 					<ul>
 					  <li><a href="#">Pour Toi</a></li>

@@ -63,6 +63,7 @@
                 <input type="password" id="confpassword" name="confpassword" required><br>
             </div>
 
+            <br><br><br>
             <div class="input">
                 <input type="submit" value="S'inscrire">
             </div>
