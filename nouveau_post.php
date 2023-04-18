@@ -31,20 +31,31 @@
             $newName = "./images/photo_post/".$uniq.".".$extension;
             // Uploader l'image dans le dossier prévu
             move_uploaded_file($tmpName, $newName);
-            
-            // Insertion d'un nouveau post dans la BDD
-            if($id == -1){
-                $query = "INSERT INTO post (image, description, id_destination, id_utilisateur) VALUES ('".$newName."', '".$_POST["description"]."', 2, ".$_SESSION["userID"].")";
-            }else{
-                $query = "UPDATE post SET image = '".$newName."', description = '".$_POST["description"]."', id_destination = 2, id_utilisateur = ".$_SESSION["userID"]." WHERE id = ".$id.";";
-            }
-            if(mysqli_query($conn, $query)){
-                header("Location:http://localhost/Projet_WE4A/profil.php?id=".$_SESSION["userID"]);
-            }
-            
+
+        } 
+    }elseif($id != -1){
+        echo("je passe la");
+        $newName = $_SESSION["image_prev"];
+    }
+    
+    if(isset($_POST['p_submit'])){
+        // Insertion d'un nouveau post dans la BDD
+        if($id == -1){
+            $query = "INSERT INTO post (image, description, id_destination, id_utilisateur) VALUES ('".$newName."', '".$_POST["description"]."', 2, ".$_SESSION["userID"].")";
         }else{
-            echo("Erreur: Le fichier n'a pas été téléchargé correctement.");
+            $query = "UPDATE post SET image = '".$newName."', description = '".$_POST["description"]."', id_destination = 2, id_utilisateur = ".$_SESSION["userID"]." WHERE id = ".$id.";";
+        }
+        if(mysqli_query($conn, $query)){
+            header("Location:http://localhost/Projet_WE4A/profil.php?id=".$_SESSION["userID"]);
+            //echo($query);
         }
     }
+    
+            
+            
+        //}else{
+        //   echo("Erreur: Le fichier n'a pas été téléchargé correctement.");
+        //}
+    //}
     
 ?>

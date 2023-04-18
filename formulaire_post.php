@@ -8,9 +8,14 @@
 <?php
 //Récupération de l'id du post (vaut -1 si le post n'a pas encor été créé)
 $id = $_GET["id"];
-$query = "SELECT image, description FROM `post` WHERE id = ".$id.";";
-$post1 = $conn->query($query);
-$post = $post1->fetch_assoc();
+//Si le post existe déjà, récupérer les champs déjà remplis
+if($id != -1){
+    $query = "SELECT image, description FROM `post` WHERE id = ".$id.";";
+    $post1 = $conn->query($query);
+    $post = $post1->fetch_assoc();
+    
+    $_SESSION["image_prev"] = $post["image"];
+}
 ?>
 <body>                 
 <!--------------------------------------- header de la page de post ----------------------------------------------------------------->
@@ -31,7 +36,15 @@ $post = $post1->fetch_assoc();
     
     <section id="formulaire_post">
         <form action="#" method="POST" url="/upload-picture" enctype="multipart/form-data"><br>
-            <button id="p_submit"><label for="p_input" id="p_label">Choisir une image</label></button>
+            <button id="p_submit" name ="p_button"><label for="p_input" id="p_label" name ="p_label">
+            <?php
+                if($id == -1){
+                    echo("Choisir une image");
+                }else{
+                    echo("Changer l'image");
+                }
+                ?>
+            </label></button>
             <input type="file" id="p_input" name="file" onchange="previewPicture(this)" style="display : none;" required>
             <div id = "p_image">
                 <img src=<?php
@@ -53,7 +66,15 @@ $post = $post1->fetch_assoc();
                 ?>><br>
             </div>
             <br>
-            <button type="submit" id="p_submit">Uploader</button>
+            <button type="submit" id="p_submit" name="p_submit">
+            <?php
+                if($id == -1){
+                    echo("Uploader");
+                }else{
+                    echo("Update");
+                }
+                ?>
+            </button>
         </form>
     </section>
     

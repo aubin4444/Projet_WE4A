@@ -144,9 +144,9 @@ h1{
 }
 
 #p_submit{
-	border-color: #31D1F5;
+	border-color: #22577a;
 	background-color: white;
-	color: #31D1F5;
+	color: #22577a;
 	border-radius: 10px;
 	margin: auto;
 	margin-left: 40%;
@@ -156,9 +156,9 @@ h1{
 }
 
 #p_submit:hover{
-	border-color: #FFC226;
+	border-color: #57cc99;
 	background-color: white;
-	color: #FFC226;
+	color: #57cc99;
 	border-radius: 10px;
 	margin: auto;
 	margin-left: 40%;
