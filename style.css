@@ -8,12 +8,12 @@
 body{
 	font-family: k2d;
 	margin: 0;
-	background-color: rgba(199, 249, 204, 0.3);
+	background-color: white;
 }
 
 header{	
 	height: 215px;
-	background-color: rgba(199, 249, 204, 0.3);
+	background-color: white;
 }
 
 h1{

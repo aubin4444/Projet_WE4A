@@ -68,10 +68,11 @@ while($post = $result1->fetch_assoc()){
 				$result_follow = $conn->query($query_follow);
 				$row_follow = $result_follow->fetch_assoc();
 				// Si l'amitié n'existe pas on affiche un bouton permettant de la créer 
+			 	include("./AJAX/follow.php"); 
 				if($row_follow["COUNT(*)"] == 0){
 					?>
 						<div id="link_follower">
-							<?php include("./AJAX/follow.php"); ?>
+							<!--Bouton follow permettant d'envoyer une requete SQL pour follow quelqu'un-->
 							<a id="follow_post" onclick="loadSimple(<?php echo $id ?>)">Follow</a>
 						</div>
 					<?php

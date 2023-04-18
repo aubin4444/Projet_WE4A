@@ -6,9 +6,10 @@ function loadSimple(currentText) {
     xhttp.onload = function() {
         if(document.getElementById("link_follower")){ //Pour le bouton follow du fil d'actu
             document.getElementById("follow_post").innerHTML = this.responseText;
-            //Ne plus afficher le bouton follow lorsqu'on clique dessus
+            //Ne plus afficher le bouton follow_post lorsqu'on clique dessus
             //Car une amitié c'est créée
             document.getElementById("follow_post").style.display = "none";
+            location.reload(); //forcer le rafraichissement de la page
         } else if (document.getElementById("bouton_follow")){ //Pour le bouton follow du profil
             //Vérifie le bouton follow du profil lorsque qu'on clique dessus
             //Son textContent passe à Ami si il était Follow et Follow s'il était Ami
@@ -35,4 +36,3 @@ function loadSimple(currentText) {
 
 </script>
 
-<!--Bouton follow permettant d'envoyer une requete SQL pour follow quelqu'un-->

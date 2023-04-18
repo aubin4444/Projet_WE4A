@@ -85,6 +85,7 @@ $row = $result->fetch_assoc();
                         include("./AJAX/follow.php"); 
                         if($row_follow["COUNT(*)"] == 0){ //S'il n'y a pas d'amitié entre l'utilisateur courant et l'utilisateur du compte cible afficher Follow
                             ?>
+                                <!--Bouton follow permettant d'envoyer une requete SQL pour follow quelqu'un-->
                                 <a id="follow_profil" onclick="loadSimple(<?php echo $id ?>)">Follow</a>
                             <?php
                         } else { //Sinon il y a une amitié donc afficher Ami
