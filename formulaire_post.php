@@ -6,11 +6,25 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <?php
-//Récupération de l'id du post (vaut -1 si le post n'a pas encor été créé)
+
+$suppression = false;
 $id = $_GET["id"];
+if($id < 0){
+    $id = -$id;
+    $suppression = true;
+}
 //Si le post existe déjà, récupérer les champs déjà remplis
-if($id != -1){
-    $query = "SELECT image, description FROM `post` WHERE id = ".$id.";";
+if($id != 0){
+    include("./fonctions_BDD.php");
+// Si la BDD n'est pas encore connecté alors
+if(!is_db_connected()){
+    // Connection à la BDD
+    connect_db();
+}
+// Ouverture de la session afin de récupérer l'identifiant de l'utilisateur courant
+session_start();
+//Récupération de l'id du post (vaut -1 si le post n'a pas encor été créé)
+    $query = "SELECT image, description, id_utilisateur FROM `post` WHERE id = ".$id.";";
     $post1 = $conn->query($query);
     $post = $post1->fetch_assoc();
     
@@ -23,12 +37,17 @@ if($id != -1){
     <header id = "hpost">
         <h1>
             <?php
-                if($id == -1){
+                if($id == 0){
                     echo("Nouveau Post");
-                }else{
+                }elseif($suppression == false){
                     echo("Modifier le Post");
+                }else{
+                    echo("Voulez vous supprimer ce post ?");
                 }
+                $user = $_SESSION["userID"];
             ?>
+
+            <a href = "<?php echo("./profil.php?id=$user")?>">Retour au profil</a>
         </h1>
     </header>
 
@@ -36,19 +55,19 @@ if($id != -1){
     
     <section id="formulaire_post">
         <form action="#" method="POST" url="/upload-picture" enctype="multipart/form-data"><br>
-            <button id="p_submit" name ="p_button"><label for="p_input" id="p_label" name ="p_label">
+            <button id="p_submit" name ="p_button" <?php if($suppression){echo("hidden");}?>><label for="p_input" id="p_label" name ="p_label">
             <?php
-                if($id == -1){
+                if($id == 0){
                     echo("Choisir une image");
-                }else{
+                }elseif($suppression == false){
                     echo("Changer l'image");
                 }
                 ?>
             </label></button>
-            <input type="file" id="p_input" name="file" onchange="previewPicture(this)" style="display : none;" required>
+            <input type="file" id="p_input" name="file" onchange="previewPicture(this)" style="display : none;">
             <div id = "p_image">
                 <img src=<?php
-                if($id == -1){
+                if($id == 0){
                     echo("#");
                 }else{
                     echo($post["image"]);
@@ -58,7 +77,7 @@ if($id != -1){
             <br>
             <div class="input">
                 <input type="text" id="description" name="description" value = <?php
-                if($id == -1){
+                if($id == 0){
                     echo("");
                 }else{
                     echo($post["description"]);
@@ -66,15 +85,26 @@ if($id != -1){
                 ?>><br>
             </div>
             <br>
-            <button type="submit" id="p_submit" name="p_submit">
+            
             <?php
-                if($id == -1){
-                    echo("Uploader");
+                if($id == 0){
+                    echo '<button type="submit" id="p_submit" name="p_submit">Uploader</button>';
+                }elseif($suppression == false){
+                    echo '<button type="submit" id="p_submit" name="p_submit">Update</button>';
                 }else{
-                    echo("Update");
+                    ?>
+                        <button type="submit" id="p_submit" name="p_submit" onclick="supprimer_post(<?php echo($id) ?>)">Delete</button>
+                        <script>
+                            function supprimer_post(id_post) {
+                                const xhttp = new XMLHttpRequest();
+                                xhttp.open("GET", "supprimer_post.php?id=" + id_post, true);
+                                xhttp.send();
+                            }
+                        </script>
+                    <?php
                 }
                 ?>
-            </button>
+            
         </form>
     </section>
     
@@ -98,6 +128,8 @@ if($id != -1){
             }
         } 
     </script>
+
+    
     
 </body>
 </html>

@@ -36,7 +36,7 @@
 
         // Insertion d'un nouveau post dans la BDD
         // Si le post vient d'être créer 
-        if($id == -1){
+        if($id == 0){
             $query = "INSERT INTO post (image, description, id_destination, id_utilisateur) VALUES ('".$newName."', '".$_POST["description"]."', 2, ".$_SESSION["userID"].")";
         // Si le post existait déjà
         }else{

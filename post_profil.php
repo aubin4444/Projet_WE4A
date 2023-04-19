@@ -23,7 +23,7 @@ while($row = $result->fetch_assoc()){
 			<div id = "poste_description"><?php echo($row["description"]); ?></div>
 			<br>
 			<a href = "<?php echo("./nouveau_post.php?id=$id_post")?>">Modifier le post</a>
-			<a href = "<?php echo("./supprimer_post.php?id=$id_post")?>">Supprimer le post</a>
+			<a href = "<?php echo("./formulaire_post.php?id=-$id_post")?>">Supprimer le post</a>
 		</div>
 	</div>
 	<br><br>
