@@ -98,7 +98,6 @@ function CheckNewAccountForm(){
         elseif ( $_POST["password"] != $_POST["confpassword"] ){
             $error = "Le mot de passe et sa confirmation sont différents";
         }
-            
         else {
             // Récupération des informations de l'utilisateur
             $username = SecurizeString_ForSQL($_POST["name"]);

@@ -97,10 +97,10 @@ $row = $result->fetch_assoc();
                 ?>
             </div>
             <div id="plus">
-                <a href = "nouveau_post.php?id=0"><img src=".\images\plus.jpg"></a>
+                <a href = "nouveau_post.php?id=0"><img src=".\images\plus.jpg" title="Nouveau Post"></a>
             </div>
             <div id="setting">
-                <img src=".\images\setting.png">
+                <a href = "photo_profil.php"><img src=".\images\setting.png" title="Modification Photo de Profile"></a>
             </div>
             <nav id = "menu" class="menu_mon_profil">
                 <ul>
