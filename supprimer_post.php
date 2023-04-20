@@ -9,7 +9,6 @@
     $suppression_post = "DELETE FROM post WHERE id = ".$_GET["id"].";";
     if (mysqli_query($conn, $suppression_post)){
         exit();
-        //header("Location:http://localhost/Projet_WE4A/profil.php?id=".$_SESSION["userID"]);
     }  
 ?>
 
