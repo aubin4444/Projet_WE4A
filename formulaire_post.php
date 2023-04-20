@@ -95,7 +95,18 @@ $user = $_SESSION["userID"];
                 if($id == 0){
                     echo '<button type="submit" id="p_submit" name="p_submit">Uploader</button>';
                 }elseif($suppression == false){
-                    echo '<button type="submit" id="p_submit" name="p_submit">Update</button>';
+                    ?><button type="submit" id="p_submit" name="p_submit">Update</button><?php
+                    // Si le champs n'est pas rempli on garde l'image initiale
+                    $filename = $post["image"];
+                    // Si le champs de l'image a été remplie (modification de l'image d'un post existant)
+                    if(isset($_FILES['file'])){
+                        // Récupération du chemin de l'image
+                        $filename = add_img();
+                    }
+                    $description = $post["description"];
+                    echo($description);
+                    echo($filename);
+                    
                 }else{
                     ?>
                         <button type="submit" id="p_submit" name="p_submit" onclick="supprimer_post(<?php echo($id) ?>)">Delete</button>
@@ -139,7 +150,31 @@ $user = $_SESSION["userID"];
         } 
     </script>
 
-    
+    <?php
+    function add_img(){
+        // Récupération du chemin temporaire de l'image
+        $tmpName = $_FILES['file']['tmp_name'];
+        // Récupération du nom de l'image
+        $name = $_FILES['file']['name'];
+        // Récupération de la taille de l'image
+        $size = $_FILES['file']['size'];
+        $error = $_FILES['file']['error'];
+
+        if(is_uploaded_file($tmpName)){
+            // Récupération de nom du fichier sous forme de tableau en prenant "." comme séparateur
+            $explodedName = explode('.', $name);
+            // Récupération de l'extension de l'image (dernier élèment du tableau)
+            $extension = strtolower(end($explodedName));
+            // Création d'un id unique pour avoir un nom spécifique à chaque image
+            $uniq = uniqid('', true);
+            // Concaténation du nom avec l'extension de l'image
+            $newName = "./images/photo_post/".$uniq.".".$extension;
+            // Uploader l'image dans le dossier prévu
+            move_uploaded_file($tmpName, $newName);
+        }
+        return $newName;
+    }
+    ?>
     
 </body>
 </html>
