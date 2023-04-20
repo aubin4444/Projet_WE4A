@@ -5,10 +5,11 @@
         // Connection à la BDD
         connect_db();
     }
-    
+    session_start();
     $suppression_post = "DELETE FROM post WHERE id = ".$_GET["id"].";";
     if (mysqli_query($conn, $suppression_post)){
-        header("Location:http://localhost/Projet_WE4A/profil.php?id=".$_SESSION["userID"]);
+        exit();
+        //header("Location:http://localhost/Projet_WE4A/profil.php?id=".$_SESSION["userID"]);
     }  
 ?>
 

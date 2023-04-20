@@ -1,11 +1,5 @@
 <?php
-    include("./fonctions_BDD.php");
-	// Si la BDD n'est pas encore connecté alors
-	if(!is_db_connected()){
-		// Connection à la BDD
-		connect_db();
-	}
-    session_start();
+   
     
     // Insertion du formulaire dans lequel l'utilisateur crée un nouveau post
     include("./formulaire_post.php");
@@ -32,20 +26,14 @@
             $newName = "./images/photo_post/".$uniq.".".$extension;
             // Uploader l'image dans le dossier prévu
             move_uploaded_file($tmpName, $newName);
-        } 
 
-        // Insertion d'un nouveau post dans la BDD
-        // Si le post vient d'être créer 
-        if($id == 0){
+            // Insertion d'un nouveau post dans la BDD
             $query = "INSERT INTO post (image, description, id_destination, id_utilisateur) VALUES ('".$newName."', '".$_POST["description"]."', 2, ".$_SESSION["userID"].")";
-        // Si le post existait déjà
-        }else{
-            $query = "UPDATE post SET image = '".$newName."', description = '".$_POST["description"]."', id_destination = 2, id_utilisateur = ".$_SESSION["userID"]." WHERE id = ".$id.";";
-        }
-    
-        // Redirection vers la page profil
-        if(mysqli_query($conn, $query)){
-            header("Location:http://localhost/Projet_WE4A/profil.php?id=".$_SESSION["userID"]);
+            
+            // Redirection vers la page profil
+            if(mysqli_query($conn, $query)){
+                header("Location:http://localhost/Projet_WE4A/profil.php?id=".$_SESSION["userID"]);
+            }
         }
     }
 ?>
