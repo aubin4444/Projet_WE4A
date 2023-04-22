@@ -41,6 +41,8 @@ $user = $_SESSION["userID"];
 <!--------------------------------------- header de la page de post ----------------------------------------------------------------->
     
     <header id = "hpost">
+    <!--lie permettant de revenir sur la page précédente-->
+    <a href = "<?php echo("./profil.php?id=$user")?>">Retour au profil</a>
         <h1>
             <?php
             // Affichage de l'entête du post en fonction de ce qui est souhaité par l'itilisateur
@@ -52,14 +54,16 @@ $user = $_SESSION["userID"];
                     echo("Voulez vous supprimer ce post ?");
                 }
             ?>
-            <a href = "<?php echo("./profil.php?id=$user")?>">Retour au profil</a>
         </h1>
     </header>
 
 <!--------------------------------------- formulaire du nouveau post ----------------------------------------------------->
     
     <section id="formulaire_post">
+        <!--formulaire permettant d'uploader une image -->
         <form action="#" method="POST" url="/upload-picture" enctype="multipart/form-data"><br>
+                <!--Affichage des bouton et de leur contenu en fonction de l'action souhaitée par l'utilisateur-->
+                <!--l'action souhaitée est indiqué par la valeure de $id -->
             <button id="p_submit" name ="p_button" <?php if($suppression){echo("hidden");}?>><label for="p_input" id="p_label" name ="p_label">
             <?php
                 if($id == 0){
@@ -69,12 +73,15 @@ $user = $_SESSION["userID"];
                 }
                 ?>
             </label></button>
+            <!--Récupération du fichier et appel de previewPicture permettant de prévisualiser l'image-->
             <input type="file" id="p_input" name="file" onchange="previewPicture(this)" style="display : none;" required>
             <div id = "p_image">
                 <img src=<?php
                 if($id == 0){
+                    //Si on crée un post "champs vide"
                     echo("#");
                 }else{
+                    //sinon afficher l'image
                     echo($post["image"]);
                 }
                 ?> alt="" id="image" style="width: 100%; height: 100%;" >
@@ -83,8 +90,10 @@ $user = $_SESSION["userID"];
             <div class="input">
                 <input type="text" id="description" name="description" value = <?php
                 if($id == 0){
+                    //Si on crée un post "champs vide"
                     echo("");
                 }else{
+                    //Sinon afficher ladescription
                     echo($post["description"]);
                 }
                 ?>><br>
@@ -96,24 +105,16 @@ $user = $_SESSION["userID"];
                     echo '<button type="submit" id="p_submit" name="p_submit">Uploader</button>';
                 }elseif($suppression == false){
                     ?><button type="submit" id="p_submit" name="p_submit">Update</button><?php
-                    // Si le champs n'est pas rempli on garde l'image initiale
-                    $filename = $post["image"];
-                    // Si le champs de l'image a été remplie (modification de l'image d'un post existant)
-                    if(isset($_FILES['file'])){
-                        // Récupération du chemin de l'image
-                        $filename = add_img();
-                    }
-                    $description = $post["description"];
-                    echo($description);
-                    echo($filename);
-                    
                 }else{
+                    // Utilisation d'AJAX pour envoyer une requete de suppression de l'image depuis supprimer_post.php
                     ?>
                         <button type="submit" id="p_submit" name="p_submit" onclick="supprimer_post(<?php echo($id) ?>)">Delete</button>
                         <script>
                             function supprimer_post(id_post) {
                                 const xhttp = new XMLHttpRequest();
+                                //Envoi de l'id du post à supprimer par la méthode GET
                                 xhttp.open("GET", "supprimer_post.php?id=" + id_post, true);
+                                //Une fois le post supprimé, redirection vers le profil
                                 xhttp.onreadystatechange = function() {
                                     if (this.readyState == 4 && this.status == 200) {
                                          window.location.href = "http://localhost/Projet_WE4A/profil.php?id=<?php echo $_SESSION["userID"]; ?>";
@@ -148,33 +149,6 @@ $user = $_SESSION["userID"];
                 image.src = URL.createObjectURL(picture)
             }
         } 
-    </script>
-
-    <?php
-    function add_img(){
-        // Récupération du chemin temporaire de l'image
-        $tmpName = $_FILES['file']['tmp_name'];
-        // Récupération du nom de l'image
-        $name = $_FILES['file']['name'];
-        // Récupération de la taille de l'image
-        $size = $_FILES['file']['size'];
-        $error = $_FILES['file']['error'];
-
-        if(is_uploaded_file($tmpName)){
-            // Récupération de nom du fichier sous forme de tableau en prenant "." comme séparateur
-            $explodedName = explode('.', $name);
-            // Récupération de l'extension de l'image (dernier élèment du tableau)
-            $extension = strtolower(end($explodedName));
-            // Création d'un id unique pour avoir un nom spécifique à chaque image
-            $uniq = uniqid('', true);
-            // Concaténation du nom avec l'extension de l'image
-            $newName = "./images/photo_post/".$uniq.".".$extension;
-            // Uploader l'image dans le dossier prévu
-            move_uploaded_file($tmpName, $newName);
-        }
-        return $newName;
-    }
-    ?>
-    
+    </script> 
 </body>
 </html>

@@ -1,6 +1,4 @@
 <?php
-   
-    
     // Insertion du formulaire dans lequel l'utilisateur crée un nouveau post
     include("./formulaire_post.php");
     
@@ -27,8 +25,15 @@
             // Uploader l'image dans le dossier prévu
             move_uploaded_file($tmpName, $newName);
 
-            // Insertion d'un nouveau post dans la BDD
-            $query = "INSERT INTO post (image, description, id_destination, id_utilisateur) VALUES ('".$newName."', '".$_POST["description"]."', 2, ".$_SESSION["userID"].")";
+            
+            if($_GET["id"] == 0){
+                // Insertion d'un nouveau post dans la BDD
+                $query = "INSERT INTO post (image, description, id_destination, id_utilisateur) VALUES ('".$newName."', '".$_POST["description"]."', 2, ".$_SESSION["userID"].")";
+            }else{
+                // Mise à jour d'un post dans la BDD
+                $query = "UPDATE post SET image = '".$newName."', description = '".$_POST["description"]."', id_destination = 2, id_utilisateur = ".$_SESSION["userID"]." WHERE id = ".$id.";";
+            }
+            
             
             // Redirection vers la page profil
             if(mysqli_query($conn, $query)){
