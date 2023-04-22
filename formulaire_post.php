@@ -96,7 +96,7 @@ $user = $_SESSION["userID"];
                     //Sinon afficher la description
                     echo ($post['description']);
                 }
-                ?>"><br>
+                ?>" required><br>
             </div>
             <br>
             

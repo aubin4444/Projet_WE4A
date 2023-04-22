@@ -45,7 +45,7 @@ function CheckLogin(){
     //Données reçues via le formulaire
 	if(isset($_POST["mail"]) && isset($_POST["password"])){
 		$username = SecurizeString_ForSQL($_POST["mail"]);
-		$password = $_POST["password"];
+		$password = md5($_POST["password"]);
 		$loginAttempted = true;
 	}
     
@@ -101,7 +101,7 @@ function CheckNewAccountForm(){
         else {
             // Récupération des informations de l'utilisateur
             $username = SecurizeString_ForSQL($_POST["name"]);
-            $password = $_POST["password"];
+            $password = md5($_POST["password"]);
             $firstname = $_POST["firstname"];
             $pseudo = $_POST["pseudo"];
             $email = $_POST["email"];
