@@ -22,8 +22,14 @@ while($row = $result->fetch_assoc()){
 			<!--Description de la publication-->
 			<div id = "poste_description"><?php echo($row["description"]); ?></div>
 			<br>
+			<?php
+			if ($_GET["id"] == $_SESSION["userID"]){
+			?>
 			<a href = "<?php echo("./nouveau_post.php?id=$id_post")?>">Modifier le post</a>
 			<a href = "<?php echo("./formulaire_post.php?id=-$id_post")?>">Supprimer le post</a>
+			<?php
+			}
+			?>
 		</div>
 	</div>
 	<br><br>
