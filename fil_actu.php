@@ -18,9 +18,11 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body >
+
 	<div id="container">
 		<div id="entete_contenu">
 			<header>
+				<a href = ./index.php>Déconnection</a>
 				<br>
 				<div id="logo_site" >
 					<img src="./images/logo_site/logo1.png">

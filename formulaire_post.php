@@ -88,15 +88,15 @@ $user = $_SESSION["userID"];
             </div>
             <br>
             <div class="input">
-                <input type="text" id="description" name="description" value = <?php
+                <input type="text" id="description" name="description" value = "<?php
                 if($id == 0){
                     //Si on crée un post "champs vide"
                     echo("");
                 }else{
-                    //Sinon afficher ladescription
-                    echo($post["description"]);
+                    //Sinon afficher la description
+                    echo ($post['description']);
                 }
-                ?>><br>
+                ?>"><br>
             </div>
             <br>
             
@@ -124,6 +124,7 @@ $user = $_SESSION["userID"];
                             }
                         </script>
                     <?php
+                    
                 }
                 ?>
             
