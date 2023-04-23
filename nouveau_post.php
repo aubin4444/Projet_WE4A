@@ -1,10 +1,8 @@
 <?php
     // Insertion du formulaire dans lequel l'utilisateur crée un nouveau post
     include("./formulaire_post.php");
-    
     // Si le champs de l'image a été remplie (nouveau post ou modification de l'image d'un post existant)
     if(isset($_FILES['file'])){
-        
         // Récupération du chemin temporaire de l'image
         $tmpName = $_FILES['file']['tmp_name'];
         // Récupération du nom de l'image
@@ -28,12 +26,13 @@
             
             if($_GET["id"] == 0){
                 // Insertion d'un nouveau post dans la BDD
-                $query = "INSERT INTO post (image, description, id_destination, id_utilisateur) VALUES ('".$newName."', '".$_POST["description"]."', 2, ".$_SESSION["userID"].")";
+                $query = "INSERT INTO post (image, description, id_destination, id_utilisateur) VALUES ('".$newName."', '".SecurizeString_ForSQL($_POST["description"])."', 2, ".$_SESSION["userID"].")";
+                echo($query);
             }else{
                 // Suppression de l'ancienne image dans le dossier des images de post
                 unlink($post["image"]);
                 // Mise à jour d'un post dans la BDD
-                $query = "UPDATE post SET image = '".$newName."', description = '".$_POST["description"]."', id_destination = 2, id_utilisateur = ".$_SESSION["userID"]." WHERE id = ".$id.";";
+                $query = "UPDATE post SET image = '".$newName."', description = '".SecurizeString_ForSQL($_POST["description"])."', id_destination = 2, id_utilisateur = ".$_SESSION["userID"]." WHERE id = ".$id.";";
             }
             
             
