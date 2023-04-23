@@ -408,7 +408,6 @@ h1{
 	position: absolute;
 	top: 80px;
 	left: 90%;
-	
 }
 
 
@@ -507,6 +506,28 @@ h1{
 	width: 40%;
 	border: 2px solid rgba(143, 142, 142, 0.3);
 	border-radius: 15px;
+}
+
+#bouton_profil{
+	width: 5%;
+	margin: auto;
+}
+
+#bouton_profil a{
+	text-decoration: none;
+	color: #22577a;
+	border : solid 2px #22577a;
+	border-radius: 10px;
+	padding : 5px;
+}
+
+#bouton_profil a:hover{
+	text-decoration: none;
+	color: #57cc99;
+	cursor: pointer;	
+	border : solid 2px #57cc99;
+	border-radius: 10px;
+	padding : 5px;
 }
 
 .formulaire_pdp{

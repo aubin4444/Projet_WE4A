@@ -19,7 +19,7 @@ session_start();
 $suppression = false;
 // Récupération de l'id du post (positif pour le modifier, négatif pour le supprimer, 0 pour le créer)
 $id = $_GET["id"];
-// si l'id transmis est négatif on le repasse en positif est on passe $suppression à true
+// si l'id transmis est négatif on le repasse en positif et on passe $suppression à true
 if($id < 0){
     $id = -$id;
     $suppression = true;
@@ -41,7 +41,7 @@ $user = $_SESSION["userID"];
 <!--------------------------------------- header de la page de post ----------------------------------------------------------------->
     
     <header id = "hpost">
-    <!--lie permettant de revenir sur la page précédente-->
+    <!--lien permettant de revenir sur la page précédente-->
     <a href = "<?php echo("./profil.php?id=$user")?>">Retour au profil</a>
         <h1>
             <?php

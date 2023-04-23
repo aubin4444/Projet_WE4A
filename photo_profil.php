@@ -4,7 +4,7 @@ include("./fonctions_BDD.php");
 connect_db();
 session_start();
 
-$query_pdp = "SELECT photo_profil FROM `utilisateur` WHERE id = '".$_SESSION['userID']."';";
+$query_pdp = "SELECT prenom, photo_profil FROM `utilisateur` WHERE id = '".$_SESSION['userID']."';";
 $resultat_pdp = $conn->query($query_pdp);
 $row_pdp = $resultat_pdp->fetch_assoc();
 
@@ -14,12 +14,16 @@ if(isset($_FILES['avatar']) and !empty($_FILES['avatar']['name'])){
     if($_FILES['avatar']['size'] <= $taillemax){
         $extensionsUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1)); //récupération de l'extension en ignorant le premier charactère soit le "." et mettre toute l'extension en minuscule
         if(in_array($extensionsUpload, $extensionsvalides)){ //vérifie si l'extension choisi est valide
-            $chemin = "images/photo_de_profil/".$_SESSION['userID'].".".$extensionsUpload; //definion du chemin de la photo de profil
+            $chemin = "./images/photo_de_profil/".$_SESSION['userID'].".".$extensionsUpload; //definion du chemin de la photo de profil
             $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin); //deplacement de la photo de profil vers le chemin défini
-            if($resultat){
-                $query_maj_pdp = "UPDATE utilisateur SET avatar = :avatar WHERE id = '".$_SESSION['userID']."';";
-                $resultat_maj_pdp = $conn->query($query_maj_pdp);
-                header("Location:http://localhost/Projet_WE4A/profil.php");
+            if($resultat) {
+                $pdo = new PDO('mysql:host=localhost;dbname=helloworld', 'root', '');
+                $updateavatar = $pdo->prepare('UPDATE utilisateur SET photo_profil = :chemin WHERE id = :userID');
+                $updateavatar->execute(array(
+                    'chemin' => $chemin,
+                    'userID' => $_SESSION['userID']
+                ));
+                header("Location:http://localhost/Projet_WE4A/profil.php?id=".$_SESSION["userID"]);
             } else {
                 $msg = "Vous avez une erreur lors de l'importation de votre photo de profile";
             }
@@ -30,7 +34,6 @@ if(isset($_FILES['avatar']) and !empty($_FILES['avatar']['name'])){
         $msg = "Votre photo de profil ne doit pas dépasser 2Mo";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +47,9 @@ if(isset($_FILES['avatar']) and !empty($_FILES['avatar']['name'])){
 <body>
     <header>
         <h1>Changement Photo de Profil</h1>
+        <div id="bouton_profil">
+            <a href="./profil.php?id=<?php echo $_SESSION['userID']; ?>">Mon Profil</a>
+        </div>
     </header>
 
     <div id="changement_pdp">
@@ -65,6 +71,7 @@ if(isset($_FILES['avatar']) and !empty($_FILES['avatar']['name'])){
                 <br>
                 <div class="input">
                     <input type="submit" id="valider" name="valider" value="Valider"><br>
+
                 </div>
             </form>
         </section>
