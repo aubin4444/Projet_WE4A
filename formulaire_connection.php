@@ -22,7 +22,7 @@
 	<section class = "formulaire_inscription_connexion">
 		<form action="#" method="post">
 			<div class="label">
-				<label for="name">Login :</label>
+				<label for="name">Login (e-mail):</label>
 				<div class="input">
 					<input autofocus type="text" id="mail" name="mail" required>
 				</div>
