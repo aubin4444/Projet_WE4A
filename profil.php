@@ -11,8 +11,6 @@
 // Connection à la BDD
 include("./fonctions_BDD.php");
 connect_db();
-// Fichier permettant d'implémenter des animations JS
-include("./JavaScript/animation_simple.php");
 
 // Ouverture de la session afin de récupérer l'identifiant de l'utilisateur courant
 session_start();
@@ -41,6 +39,8 @@ $row = $result->fetch_assoc();
                     ?>
                 </span>
             </div>
+
+            <!-- Requêtes SQL permettant de compter le nombre de posts qu'un utilisateur a posté -->
             <?php
                 $query_post = "SELECT Count(*) AS nb_posts FROM `post` WHERE id_utilisateur = '".$id."';";
                 $result_post = $conn->query($query_post);
@@ -55,6 +55,8 @@ $row = $result->fetch_assoc();
                 <br/>
                 <span>postes</span>
             </div>
+
+            <!-- Requêtes SQL permettant de compter le nombre d'amis qu'un utilisateur a -->
             <?php
                 $query_amis = "SELECT COUNT(*) AS nb_amis FROM `ami` WHERE id_utilisateur = '".$id."';";
                 $result_amis = $conn->query($query_amis);
@@ -69,8 +71,19 @@ $row = $result->fetch_assoc();
                 <br/>
                 <span>amis</span>
             </div>
+
+            <!-- Requêtes SQL permettant de compter le nombre de likes qu'un utilisateur a -->
+            <?php
+                $query_likes = "SELECT COUNT(*) AS nb_likes FROM `like` lik INNER JOIN `post` pos ON lik.id_post = pos.id INNER JOIN `utilisateur`uti ON pos.id_utilisateur = uti.id WHERE uti.id = '".$id."';";
+                $result_likes = $conn->query($query_likes);
+                $row_likes = $result_likes->fetch_assoc();
+            ?>
             <div id="likes">
-                <span>999</span>
+                <span>
+                    <?php
+                        echo($row_likes['nb_likes']);
+                    ?>
+                </span>
                 <br/>
                 <span>likes</span>
             </div>

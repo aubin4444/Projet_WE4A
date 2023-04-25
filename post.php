@@ -1,17 +1,19 @@
 
 <?php
 // Fichier permettant d'implémenter des animations JS
-include("./JavaScript/animation_simple.php");
+//include("./JavaScript/animation_simple.php");
 
 
 // Récupération de l'image, de la description et de l'identifiant associé au 10 derniers posts en omettant les posts de l'utilisateur connecté
-$query = "SELECT image, description, id_utilisateur FROM `post` WHERE id_utilisateur != '".$_SESSION['userID']."' ORDER BY id DESC LIMIT 10;";
+$query = "SELECT id, image, description, id_utilisateur FROM `post` WHERE id_utilisateur != '".$_SESSION['userID']."' ORDER BY id DESC LIMIT 10;";
 $result1 = $conn->query($query);
 //Affichage de chacun des posts 
 while($post = $result1->fetch_assoc()){
 
 	// Récupération de l'id de l'auteur du post
 	$id = $post["id_utilisateur"];
+	// Récupération de l'id du post
+	$id_post = $post['id'];
 	// Récupération du pseudo et de la photo de profil de l'utilisateur auteur du post
 	$query = "SELECT pseudo, photo_profil FROM `utilisateur` WHERE id = '".$id."';";
 	$result = $conn->query($query);
@@ -51,16 +53,58 @@ while($post = $result1->fetch_assoc()){
 
 		<!--Footer de la publication-->
 		<div id = "poste_footer">
-			<div id = "poste_description"><?php echo($post["description"]); 
-			//echo($row_follow['isAmi']);?>
-			
-			<p>100 j'aimes</p>
+			<div id = "poste_description">
+				
+			<?php 
+				echo($post["description"]);
+
+				//Requêtes SQL permettant de compter le nombre de like d'un post
+				$query_likes_post = "SELECT COUNT(*) AS nb_likes_post FROM `like` WHERE id_post = '".$id_post."';";
+                $result_likes_post = $conn->query($query_likes_post);
+                $row_likes_post = $result_likes_post->fetch_assoc();
+			?>
+
+				<div id="nb_like">
+					<p id="nb_likes_post_<?php echo $id_post; ?>"><?php echo $row_likes_post['nb_likes_post'] ?> likes</p>
+				</div>
 			</div>
 			<hr>
 			<div id = "poste_reactions">
-				<div id="like"><img id="like_img" src="./images/like_off.png" onclick="like_click()"></div>
-				<div id="comment"><img src="./images/comment.png"></div>
-				<div id="share"><img src="./images/share.png"></div>
+				<?php 
+				$query_is_like = "SELECT COUNT(*) as is_like FROM `like` WHERE id_post = '".$id_post."' AND id_utilisateur = '".$_SESSION['userID']."';";
+				$result_is_like = $conn->query($query_is_like);
+				$row_is_like = $result_is_like->fetch_assoc();
+				
+				include("./AJAX/like.php"); 
+				$nb_likes = $row_likes_post['nb_likes_post'];
+				if($row_is_like['is_like'] == 0){
+					?>
+					<div id="like">
+						<!-- le lien va exécuter la fonction like_click au moment de cliquer dessus -->
+						<!-- cas où l'utilisateur courant est sur le point de liker le post d'id "id_post" -->
+						<a id="link_like" onclick="like_click(<?php echo $id_post ?>, <?php echo $nb_likes ?>)">
+							<img id="like_img_<?php echo $id_post; ?>" src="./images/like_off.png">
+						</a>
+					</div>
+					<?php
+				} else {
+					?>
+					<div id="like">
+						<!-- le lien va exécuter la fonction like_click au moment de cliquer dessus -->
+						<!-- cas où l'utilisateur courant est sur le point de disliker le post d'id "id_post" -->
+						<a id="link_like" onclick="like_click(<?php echo $id_post ?>, <?php echo $nb_likes ?>)">
+							<img id="like_img_<?php echo $id_post; ?>" src="./images/like_on.png">
+						</a>
+					</div>
+					<?php
+				}
+				?>
+				<div id="comment">
+					<img src="./images/comment.png">
+				</div>
+				<div id="share">
+					<img src="./images/share.png">
+				</div>
 				
 			<?php
 				// On regarde si l'amitiée existe déjà dans la BDD

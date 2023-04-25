@@ -22,7 +22,9 @@
 	<div id="container">
 		<div id="entete_contenu">
 			<header>
-				<a href = ./index.php>Déconnection</a>
+				<div id="deconnection">
+					<a href = ./index.php><img src="./images/deconnection.png"></a>
+				</div>
 				<br>
 				<div id="logo_site" >
 					<img src="./images/logo_site/logo1.png">
