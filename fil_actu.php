@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<?php
-	include("./fonctions_BDD.php");
-	// Si la BDD n'est pas encore connecté alors
-	if(!is_db_connected()){
-		// Connection à la BDD
-		connect_db();
-	}
 
-	// Ouverture de la session afin de récupérer l'identifiant de l'utilisateur courant
-	session_start();
+<?php
+include("./fonctions_BDD.php");
+// Si la BDD n'est pas encore connecté alors
+if(!is_db_connected()){
+    // Connection à la BDD
+    connect_db();
+}
+
+// Ouverture de la session afin de récupérer l'identifiant de l'utilisateur courant
+session_start();
 ?>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -42,6 +44,15 @@
 			<?php
 				include("./post.php");
 			?>
+
+			<?php
+				include("./AJAX/rechargement_post.php");
+			?>
+		
+			<div id="recharge_post">
+				<button onclick="loadPost(10)" >Load More Post</button>
+			</div>
+			<br><br><br>
 
 		</div>
 		<div id="profil_recommandation">

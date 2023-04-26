@@ -184,6 +184,40 @@ h1{
 	padding-top: 5%;
 }
 
+#recharge_post {
+	width: 15%;
+	margin: auto;
+}
+
+#recharge_post button{
+	text-decoration: none;
+	margin: auto;
+	color: #22577a;
+	border : solid 2px #22577a;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#recharge_post button:hover{
+	color: #57cc99;
+	border : solid 2px #57cc99;
+}
+
+#recharge_post button:active{
+	color: #57cc99;
+	border : solid 2px #57cc99;
+}
+
+#recharge_post button:visited{
+	color: #22577a;
+	border : solid 2px #22577a;
+}
+
+#show_post {
+	width: 100%;
+	margin: auto;
+}
+
 .profil {
 	display: flex;
 	align-items: center;
