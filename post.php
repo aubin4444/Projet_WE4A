@@ -4,9 +4,9 @@
 //include("./JavaScript/animation_simple.php");
 
 // Récupération de l'image, de la description et de l'identifiant associé au 10 derniers posts en omettant les posts de l'utilisateur connecté
-
 if(isset($_GET["connection"])){
 	if($_GET["connection"] == 2){
+		// Si on est sur la section "Mes Amis" On récupère tous les post dont l'id utilisateur est égal à celui des du profil courant
 		$amireq = "SELECT id_ami FROM `ami` WHERE id_utilisateur = ".$_SESSION["userID"].";";
 		$ami = $conn->query($amireq);
 		while($idami = $ami->fetch_assoc()){
@@ -14,11 +14,11 @@ if(isset($_GET["connection"])){
 			$result1 = $conn->query($query);
 		}
 	}else{
+		// Si on est sur la section "pour toi" On récupère tous les post dont l'id utilisateur est différent du profil courant
 		$query = "SELECT id, image, description, id_utilisateur FROM `post` WHERE id_utilisateur != '".$_SESSION['userID']."' ORDER BY id DESC LIMIT 10;";
 		$result1 = $conn->query($query);
 	}
 }
-// Récupération de l'image, de la description et de l'identifiant associé au 10 derniers posts en omettant les posts de l'utilisateur connecté
 
 //Affichage de chacun des posts 
 while($post = $result1->fetch_assoc()){

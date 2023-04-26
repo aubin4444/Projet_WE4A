@@ -13,7 +13,7 @@ Elements inactif :
 -   Parmis les élèments se trouvants sur le poste, le bouton partager, le bouton commentaire et la date du poste sont uniquement des élèments HTML (ils ne fonctionnent donc pas)
 -   Dans la barre de menu d'un profil, les sections "Mes aventures" et "Mes kiffes" ne sont reliées à rien 
 -   sur le fil d'actualité la section "Carte" n'est reliées à rien
--   Sur le fil d'actualité la section recommandation est juste un div HTML inactif
+-   Sur le fil d'actualité la section recommandations est juste un div HTML inactif
 
 Comptes BDD : 
 
