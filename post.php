@@ -18,6 +18,10 @@ if(isset($_GET["connection"])){
 		$query = "SELECT id, image, description, id_utilisateur FROM `post` WHERE id_utilisateur != '".$_SESSION['userID']."' ORDER BY id DESC LIMIT 10;";
 		$result1 = $conn->query($query);
 	}
+}else{
+	// Si on est sur la section "pour toi" On récupère tous les post dont l'id utilisateur est différent du profil courant
+	$query = "SELECT id, image, description, id_utilisateur FROM `post` WHERE id_utilisateur != '".$_SESSION['userID']."' ORDER BY id DESC LIMIT 10;";
+	$result1 = $conn->query($query);
 }
 
 //Affichage de chacun des posts 
