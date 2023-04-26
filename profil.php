@@ -109,12 +109,18 @@ $row = $result->fetch_assoc();
                     }
                 ?>
             </div>
+            <?php
+            if($id == $_SESSION["userID"]){
+            ?>
             <div id="plus">
                 <a href = "nouveau_post.php?id=0"><img src=".\images\plus.jpg" title="Nouveau Post"></a>
             </div>
             <div id="setting">
                 <a href = "photo_profil.php"><img src=".\images\setting.png" title="Modification Photo de Profile"></a>
             </div>
+            <?php
+            }
+            ?>
             <nav id = "menu" class="menu_mon_profil">
                 <ul>
                     <li><a href="fil_actu.php?connection=1">Fil d'Actu</a></li>
