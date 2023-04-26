@@ -3,10 +3,23 @@
 // Fichier permettant d'implémenter des animations JS
 //include("./JavaScript/animation_simple.php");
 
-
 // Récupération de l'image, de la description et de l'identifiant associé au 10 derniers posts en omettant les posts de l'utilisateur connecté
-$query = "SELECT id, image, description, id_utilisateur FROM `post` WHERE id_utilisateur != '".$_SESSION['userID']."' ORDER BY id DESC LIMIT 10;";
-$result1 = $conn->query($query);
+
+if(isset($_GET["connection"])){
+	if($_GET["connection"] == 2){
+		$amireq = "SELECT id_ami FROM `ami` WHERE id_utilisateur = ".$_SESSION["userID"].";";
+		$ami = $conn->query($amireq);
+		while($idami = $ami->fetch_assoc()){
+			$query = "SELECT id, image, description, id_utilisateur FROM `post` WHERE id_utilisateur = '".$idami["id_ami"]."' ORDER BY id DESC LIMIT 10;";
+			$result1 = $conn->query($query);
+		}
+	}else{
+		$query = "SELECT id, image, description, id_utilisateur FROM `post` WHERE id_utilisateur != '".$_SESSION['userID']."' ORDER BY id DESC LIMIT 10;";
+		$result1 = $conn->query($query);
+	}
+}
+// Récupération de l'image, de la description et de l'identifiant associé au 10 derniers posts en omettant les posts de l'utilisateur connecté
+
 //Affichage de chacun des posts 
 while($post = $result1->fetch_assoc()){
 

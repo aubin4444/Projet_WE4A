@@ -34,8 +34,8 @@ session_start();
 				<br>
 				<nav id = "menu">
 					<ul>
-					  <li><a href="#">Pour Toi</a></li>
-					  <li><a href="#">Suivant</a></li>
+					  <li><a href="fil_actu.php?connection=1">Pour Toi</a></li>
+					  <li><a href="fil_actu.php?connection=2">Mes amis</a></li>
 					  <li><a href="#">Carte</a></li>
 					</ul>
 				</nav>
