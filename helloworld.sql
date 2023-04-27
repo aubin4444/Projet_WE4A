@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 22 Avril 2023 à 20:40
+-- Généré le :  Jeu 27 Avril 2023 à 12:51
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -130,7 +130,13 @@ CREATE TABLE `like` (
 --
 
 INSERT INTO `like` (`id_post`, `id_utilisateur`) VALUES
-(4, 2);
+(4, 2),
+(96, 2),
+(104, 2),
+(106, 2),
+(111, 9),
+(112, 9),
+(116, 9);
 
 -- --------------------------------------------------------
 
@@ -156,12 +162,8 @@ INSERT INTO `post` (`id`, `image`, `description`, `id_destination`, `id_utilisat
 (4, './images/photo_post/Japon.jpg', 'The blend of tradition and modernity in Japan is simply fascinating', 1, 9),
 (5, './images/photo_post/Etats_Unis.jpg', 'From the bustling cities to the awe-inspiring natural wonders, the United States never ceases to amaze me.', 2, 6),
 (6, './images/photo_post/Bali.jpg', 'My Wonderful trip to Bali !!!', 3, 7),
-(7, './images/photo_post/Laponie.jpg', 'Experiencing the magical winter wonderland of Lapland was a dream come true.', 1, 8),
 (9, './images/photo_post/Croatie.jpg', 'Discovering the hidden gems of Croatia was truly amazing.', 3, 10),
-(89, './images/photo_post/64442c5bbaeb65.96474043.jpg', 'Paris !!!!', 2, 4),
-(90, './images/photo_post/64442c6c159f41.94421849.jpg', 'I love London', 2, 4),
 (91, './images/photo_post/64442ce40e0874.49418660.aspx', 'Montreal is soooooo cool', 2, 2),
-(92, './images/photo_post/64442d0043d9d1.67367107.jpg', 'beautiful Roma !!', 2, 2),
 (95, './images/photo_post/64442d7e12c1b2.91565724.jpg', 'youhou', 2, 3),
 (96, './images/photo_post/64442d9071fb63.24810643.jpg', 'wonderful !!', 2, 3),
 (97, './images/photo_post/64442da14e0cf5.46260359.jpg', 'I love this country', 2, 3),
@@ -179,7 +181,10 @@ INSERT INTO `post` (`id`, `image`, `description`, `id_destination`, `id_utilisat
 (111, './images/photo_post/644445c46e2c61.54812488.jpg', 'Bear bear bear', 2, 8),
 (112, './images/photo_post/644445d47ec4d6.28324794.jpg', 'Beautiful', 2, 8),
 (113, './images/photo_post/644446077e3363.41575638.jpg', 'I love it', 2, 9),
-(114, './images/photo_post/6444461398b288.83223876.jpg', 'yoohoo', 2, 9);
+(114, './images/photo_post/6444461398b288.83223876.jpg', 'yoohoo', 2, 9),
+(116, './images/photo_post/644a6e8e6e77e6.26042626.jpg', 'beautiful Roma !!', 2, 2),
+(117, './images/photo_post/644a6f60edf8c4.60359001.jpg', 'Bear bear bear', 2, 4),
+(118, './images/photo_post/644a6f74de4546.28777285.jpg', 'AMAZING CITY', 2, 4);
 
 -- --------------------------------------------------------
 
@@ -273,7 +278,7 @@ ALTER TABLE `destination`
 -- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
