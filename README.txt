@@ -1,3 +1,8 @@
+Versions :
+
+PHP : php-7.0.3
+MySQL : mysql-5.7.11
+
 Connexion BDD : 
 
 Nom de la BDD : helloworld

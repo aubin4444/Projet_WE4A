@@ -67,8 +67,8 @@ session_start();
 					<div class = "photo_destination"><img src="./images/photo_post/Croatie.jpg"></div>
 				</div>
 				<div class="destination">
-					<div>#2 Laponie</div>
-					<div class = "photo_destination"><img src="./images/photo_post/Laponie.jpg"></div>
+					<div>#2 Japon</div>
+					<div class = "photo_destination"><img src="./images/photo_post/6444f85de08f64.36094764.jpg"></div>
 				</div>
 			</div>
 		</div>
